@@ -56,7 +56,6 @@
 	<div class="content">
 		<div class="primary">
 		<h3>left</h3>
-		<button onclick="alert('aaaaa');">ddddd</button>
 		<p>sdfasdfasdfasdfsadfasdfasdf</p>
 	</div>
 	<div class="secondary">

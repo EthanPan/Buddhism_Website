@@ -11,8 +11,8 @@
 </head>
 <body >
 <div class="wrapper">
-        <%@ include file="banner_nav.jsp" %>
-        <%@include  file="footer.jsp" %>
+        <%@ include file="/jsp/banner_nav.jsp" %>
+        <%@include  file="/jsp/footer.jsp" %>
 </div>
 </body>
 </html>
