@@ -27,7 +27,7 @@ body{
 	box-shadow: 0 0 15px #373737;
 }
 .header{
-	background: url(../images/banner.jpg);
+	background: url(../images/banner.jpg) repeat-y;
 	height:155px;
 }
 
@@ -96,6 +96,19 @@ border-top:none;
 }
 #subNav a{text-decoration:none;display: block;	
 }*/
+#message{width: auto;height:23px;
+	background: url(../images/message_back.jpg) repeat-x;
+}
+#right_title{
+	width: 215px;
+	height:36px;
+	background: url(../images/title_back_right.jpg) repeat-x;
+}
+#left_title{
+	width: 165px;
+	height:26px;
+	background:url(../images/title_back.jpg) repeat-x;
+}
 .content{
 	overflow: hidden;
 }
@@ -104,14 +117,60 @@ border-top:none;
 	padding-right: 10px;
 	float: left;
 	display: inline;
+	
 }
-.content .senconday{
+.content .secondly{
 	width: 260px;
 	float: right;
 	display: inline;
 }
-.primary .picture{
+.content .secondly .box{
 	
+	width: 215px;
+	height:312px;
+	background-color: #fbe9c1;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 20px;
+}
+.content .primary .background{	overflow: hidden;
+	width: 565px;height:245px;
+	background-color: #deabab ;
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.content .primary .three{
+	margin-left: 30px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	margin-right: 15px;
+}
+.content .primary .three .two{
+width: 385px;
+height:105px;
+float: left;
+display: block;
+}
+.content .primary .three .two .left{
+	
+    float: left;
+    width: 164px;height:105px;
+	border-right: 1px solid #e30a0a;
+	padding-right: 15px;
+}
+.content .primary .three .two .right{
+	float:right;
+	width: 164px;height:105px;
+	border-right: 1px solid #e30a0a;
+	padding-right: 19px;
+}
+.content .primary .three .last{
+float: right;
+width: 165px;height:105px;
+-color: #8ee2be;
+display: block;
+padding-left: 15px;
 }
 .footer{
 	overflow:hidden;
@@ -136,7 +195,7 @@ border-top:none;
 	overflow:hidden;
 	font-size:13px;
 	top:118px;
-	left:346px;
+	left:300px;
 	position: relative;
 	color: #f4f4f4;
 }
@@ -169,4 +228,8 @@ border-top:none;
 {
 	color: #f4f4f4;
 	text-decoration: none;
+}
+.footer .connect ul li:hover a 
+{
+	color: #fad16c;
 }

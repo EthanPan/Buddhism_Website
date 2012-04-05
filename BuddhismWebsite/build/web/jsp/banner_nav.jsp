@@ -53,13 +53,3 @@
 
 	<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
 	
-	<div class="content">
-		<div class="primary">
-		<h3>left</h3>
-		<p>sdfasdfasdfasdfsadfasdfasdf</p>
-	</div>
-	<div class="secondary">
-		<h3>right</h3>
-	<p>sdfasdfasdfasdfsadfasdfasdf</p>
-	</div>
-	</div>
