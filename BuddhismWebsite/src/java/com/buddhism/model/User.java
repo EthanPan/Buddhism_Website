@@ -12,7 +12,8 @@ public class User {
     private int index;
     private int type;
     private int questionIndex;
-    private int gender;
+    
+    private char gender;
     
     private String userName;
     private String penName;
@@ -36,11 +37,11 @@ public class User {
         this.email = email;
     }
 
-    public int getGender() {
+    public char getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(char gender) {
         this.gender = gender;
     }
 
