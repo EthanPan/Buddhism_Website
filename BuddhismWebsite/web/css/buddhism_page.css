@@ -109,7 +109,6 @@ border-top:none;
 	background: url(../images/title_back_right.jpg) repeat-x;
 	color: #f6f6f6;
 	font-size: 18px;
-	font-weight: bold;
 }
 #left_title{
 	padding-left:15px;
@@ -119,6 +118,14 @@ border-top:none;
 	height:26px;
 	background:url(../images/title_back.jpg) repeat-x;
 	font-size: 15px;
+}
+#more{
+	float: right;
+	text-align: right;
+	margin-top: 5px;
+	margin-right: 10px;
+	font-size: 9px;
+	color: #fbf2d2;
 }
 
 .content{
@@ -167,13 +174,32 @@ border-top:none;
 	margin: 20px 40px 20px 10px;
 
 }
-.content .primary .background{	overflow: hidden;
+#pictureswall_bk{
+	overflow: hidden;
 	width: 565px;height:245px;
 	background-color: #deabab ;
 	margin-left: 30px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+
+#pictureswall {position:relative; width:400px; height:213px; overflow:hidden;}
+#pictures img {border:0px;width: 400px;height:213px;
+}
+#pictures_bg {overflow: hidden;
+	position: relative; bottom:0;background-color:#b73030;height:32px;z-index:1000; width:400px; }
+#pictures_info{margin-top: 8px;font-size: 18px;
+	position:relative; bottom:0; left:5px;height:22px;color:#fff;float:left;z-index:1001;cursor:pointer}
+#pictures_text {position:absolute;width:120px;z-index:1002; right:3px; bottom:3px;}
+#pictures_bg ul { margin-left: 300px;margin-top: 10px;
+	z-index:1005}
+#pictures_bg ul li { 
+	padding:7px;float:left;display:block;background:url(../images/white_dot.jpg) no-repeat;cursor:pointer;color: transparent;
+}
+#pictures_bg ul li.on { background: url(../images/yellow_dot.jpg) no-repeat;
+}
+#pictures a{position:absolute;}
 #viewmore{
 	text-align: center;
 	font-size: 16px;
@@ -282,8 +308,9 @@ padding-left: 15px;
 }
 .footer .connect ul li 
 {
-    margin: 5px;	
+	
 	list-style:none;
+	margin: 5px;
 } 
 .footer .connect ul li a 
 {
