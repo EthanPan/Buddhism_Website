@@ -7,9 +7,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 
-<div class="header">
-	
-	</div>
+<div class="header"></div>
 	<div>
 		<ul id="nav">
 			<li><a href="#">網站首頁</a></li>
