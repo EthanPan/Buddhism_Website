@@ -52,4 +52,5 @@
 	</ul>
 
 	<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
-	
+        <div id="message"></div>
+

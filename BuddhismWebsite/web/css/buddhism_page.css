@@ -124,14 +124,36 @@ border-top:none;
 	float: right;
 	display: inline;
 }
-.content .secondly .box{
+.content .secondly .teacherbox{
 	
 	width: 215px;
 	height:312px;
 	background-color: #fbe9c1;
-	margin-left: 10px;
-	margin-right: 40px;
-	margin-top: 20px;
+	margin: 20px 40px 5px 10px;
+}
+.content .secondly .notificationbox{
+	
+	width: 215px;
+	height:140px;
+	background-color: #fbe9c1;
+	margin: 20px 40px 5px 10px;
+
+}
+.content .secondly .newsbox{
+	
+	width: 215px;
+	height:215px;
+	background-color: #fbe9c1;
+	margin: 20px 40px 5px 10px;
+
+}
+.content .secondly .supportbox{
+	
+	width: 215px;
+	height:315px;
+	background-color: #fbe9c1;
+	margin: 20px 40px 20px 10px;
+
 }
 .content .primary .background{	overflow: hidden;
 	width: 565px;height:245px;
@@ -140,9 +162,24 @@ border-top:none;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+.content .article{
+    overflow: hidden;
+    margin-left: 30px;
+	margin-top: 30px;
+	width: 565px;
+	height:155px;
+	margin-bottom: 30px;
+}
+.content .article .title{
+	width: 565px;
+	height:35px;
+	border-bottom: 2px solid #e95353;
+	border-top: 4px solid #e95353;
+}
+
 .content .primary .three{
 	margin-left: 30px;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	overflow: hidden;
 	margin-right: 15px;
 }
