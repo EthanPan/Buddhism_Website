@@ -23,10 +23,9 @@
 			<li><a href="#" rel='dropmenu5'>關於我們</a></li>         
 			<li><a href="#">管理</a></li>         
 		</ul>
-		
+		<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
 	</div>
 	
-	<script type='text/javascript' src='js/dropdown.js'></script>
 	 <ul id="dropmenu1" class="dropMenu">
 		<li><s:a href="teacher1.jsp">嘉傑 果碩仁波切</s:a></li>
 		<li><s:a href="teacher2.jsp">經論講座老師 </s:a></li>
@@ -49,6 +48,6 @@
             <li><s:a href="joinUs.jsp">加入我们</s:a></li>
 	</ul>
 
-	<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
+	
         <div id="message"></div>
 

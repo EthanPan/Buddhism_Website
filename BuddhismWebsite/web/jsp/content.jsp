@@ -24,13 +24,13 @@
 			<div id="pictureswall">	
 			    
 			   <div id="pictures">
-			        <a href="#" target="_blank"><img src="imgs/p1.jpg" title="橡树小屋的blog1" alt="橡树小屋的blog1" /></a>
-			        <a href="#" target="_blank"><img src="imgs/p5.jpg" title="橡树小屋的blog2" alt="橡树小屋的blog2" /></a>
-			        <a href="#" target="_blank"><img src="imgs/p3.jpg" title="橡树小屋的blog3" alt="橡树小屋的blog3" /></a>
-			        <a href="#" target="_blank"><img src="imgs/p4.jpg" title="橡树小屋的blog4" alt="橡树小屋的blog4" /></a>
-				</div>
+			        <a href="#" target="_blank"><img src="imgs/p1.jpg" title="嘉定校区风光1" alt="嘉定校区风光1" /></a>
+			        <a href="#" target="_blank"><img src="imgs/p2.jpg" title="嘉定校区风光2" alt="嘉定校区风光2" /></a>
+			        <a href="#" target="_blank"><img src="imgs/p3.jpg" title="嘉定校区风光3" alt="嘉定校区风光3" /></a>
+			        <a href="#" target="_blank"><img src="imgs/p4.jpg" title="嘉定校区风光4" alt="嘉定校区风光4" /></a>
+			   </div>
 			</div>
-			</div>
+			</div>	  	
 	  		<div class="three">
 	  			<div class="two">
 	  				<div class="left">

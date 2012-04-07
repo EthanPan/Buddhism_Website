@@ -8,7 +8,7 @@
 	
 	$("#pictures_bg li").click(function() {
 
-			var i = $(this).text - 1;//获取Li元素内的值，即1，2，3，4
+			var i = $(this).text() - 1;//获取Li元素内的值，即1，2，3，4
 			n = i;
 			if (i >= count) return;
 			$("#pictures_info").html($("#pictures a").eq(i).find("img").attr('alt'));
