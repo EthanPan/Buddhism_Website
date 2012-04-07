@@ -1,5 +1,6 @@
+
 var cssdropdown={
-disappeardelay: 250, 
+disappeardelay: 100, 
 disablemenuclick: false, 
 enableswipe: 1, 
 enableiframeshim: 1, 
