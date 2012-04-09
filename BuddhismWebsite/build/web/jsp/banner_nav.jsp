@@ -10,18 +10,18 @@
 <div class="header"></div>
 	<div>
 		<ul id="nav">
-			<li><a href="#">網站首頁</a></li>
+			<li><a href="mainPage.jsp">網站首頁</a></li>
 			<li><a href="#" rel='dropmenu1'>指導上師</a></li>
-			<li><a href="#">重要公告</a></li>
+			<li><a href="importantPosts.jsp">重要公告</a></li>
 			<li><a href="#" rel='dropmenu2'>最新法訊</a></li>
-			<li><a href="#">甘露教言</a></li>
+			<li><a href="buddleWords.jsp">甘露教言</a></li>
 			<li><a href="#" rel='dropmenu3'>正法蘭若</a></li>
-			<li><a href="#">活動剪影</a></li> 
-			<li><a href="#">最新法訊</a></li>     
+			<li><a href="activities.jsp">活動剪影</a></li> 
+			<li><a href="latestMessage.jsp">最新法訊</a></li>     
 			<li><a href="#" rel='dropmenu4'>清涼共享</a></li>   
-		    <li><a href="#">影音專區</a></li>   
+                        <li><a href="videos.jsp">影音專區</a></li>   
 			<li><a href="#" rel='dropmenu5'>關於我們</a></li>         
-			<li><a href="#">管理</a></li>         
+			<li><a href="management.jsp">管理</a></li>         
 		</ul>
 		<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
 	</div>
@@ -45,7 +45,7 @@
         <ul id="dropmenu5" class="dropMenu">
 		<li><s:a href="knowUs.jsp">认识我们</s:a></li>
 		<li><s:a href="contactUs.jsp">联系我们</s:a></li>
-            <li><s:a href="joinUs.jsp">加入我们</s:a></li>
+                <li><s:a href="joinUs.jsp">加入我们</s:a></li>
 	</ul>
 
 	

@@ -1,10 +1,11 @@
 <%-- 
-    Document   : importantPosts
-    Created on : 2012-3-30, 16:28:57
+    Document   : teacher1
+    Created on : 2012-4-9, 16:13:16
     Author     : Trine
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
@@ -12,12 +13,12 @@
     <script type='text/javascript' src='js/dropdown.js'></script>
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type='text/javascript' src='js/picture_show.js'></script>	
-    <title>重要公告</title>
+    <title>經論講座老師</title>
 </head>
     <body>
         <div class="wrapper">
-        <%@ include file="/jsp/banner_nav.jsp" %>
-        <%@include  file="/jsp/footer.jsp" %>
-</div>
+            <%@ include file="/jsp/banner_nav.jsp" %>
+            <%@include  file="/jsp/footer.jsp" %>
+        </div>
     </body>
 </html>
