@@ -7,6 +7,18 @@
     
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
-        
+        <action name="logIn" class="logAction">
+            <result name="SUCCESS" type="redirect">managementAction.action</result>
+            <result name="INPUT">logIn.jsp</result>
+        </action>
+        <action name="managementAction" class="manage" method="nextPage">
+            <result name="SUCCESS" type="redirect">management.jsp</result>
+        </action>
+        <action name="managementAction" class="manage" method="previousPage">
+            <result name="SUCCESS" type="redirect">management.jsp</result>
+        </action>
+        <action name="managementAction" class="manage">
+            <result name="SUCCESS">management.jsp</result>
+        </action>
     </package>
 </struts>

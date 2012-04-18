@@ -25,8 +25,9 @@ public class administratorDaoImpl extends HibernateDaoSupport implements adminis
     }
 
     @Override
-    public Administrator getAdministrator(String adName) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Administrator getAdministrator(String adName) 
+    {
+       return (Administrator)getHibernateTemplate().find("from Administrator as a where a.adName = ?", adName).get(0);
     }
     
 }

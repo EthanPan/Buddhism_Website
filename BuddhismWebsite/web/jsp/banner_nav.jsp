@@ -21,7 +21,7 @@
 			<li><a href="shares.jsp" rel='dropmenu4'>清涼共享</a></li>   
                         <li><a href="videos.jsp">影音專區</a></li>   
 			<li><a href="aboutUs.jsp" rel='dropmenu5'>關於我們</a></li>         
-			<li><a href="management.jsp">管理</a></li>         
+			<li><a href="logIn.jsp">管理</a></li>         
 		</ul>
 		<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
 	</div>

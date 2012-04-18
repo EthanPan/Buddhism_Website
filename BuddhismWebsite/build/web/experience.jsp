@@ -18,6 +18,7 @@
     <body>
         <div class="wrapper">
             <%@ include file="/jsp/banner_nav.jsp" %>
+            
             <%@include  file="/jsp/footer.jsp" %>
         </div>
     </body>
