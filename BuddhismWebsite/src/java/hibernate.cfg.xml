@@ -7,5 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/BuddhismDB</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">123456</property>
+    <mapping resource="com/buddhism/model/Post.hbm.xml"/>
+    <mapping resource="com/buddhism/model/Administrator.hbm.xml"/>
+    <mapping resource="com/buddhism/model/Media.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
