@@ -6,6 +6,7 @@
 package com.buddhism.controller;
 
 import com.buddhism.model.Post;
+import com.buddhism.service.postService;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,12 @@ public class ManagementAction{
     private int currentIndex = 0;
     private int max = 20;
 
-    public String execute(){
+    private postService service;
     
+    public String execute(){
+        
+        posts = service.getPage(currentIndex * max, max);
+
         return "SUCCESS";
     }
 
@@ -32,6 +37,14 @@ public class ManagementAction{
     public void previousPage(){
         if(currentIndex > 0)
             currentIndex--;
+    }
+
+    public postService getService() {
+        return service;
+    }
+
+    public void setService(postService service) {
+        this.service = service;
     }
     
     public int getCurrentIndex() {

@@ -62,5 +62,18 @@
         </property>
     </bean>
     <bean id="manage" class="com.buddhism.controller.ManagementAction">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>
+    </bean>
+    <bean id="postDao" class="com.buddhism.dao.postDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+    <bean id="postService" class="com.buddhism.service.postServiceImpl">
+        <property name="postDao">
+            <ref bean="postDao"></ref>
+        </property>
     </bean>
 </beans>

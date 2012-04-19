@@ -25,6 +25,14 @@
                     <th>文章类型&nbsp;&nbsp; </th>
                     <th>文章内容&nbsp;&nbsp; </th>
                 </tr>
+                <s:iterator value="posts" id="singlePost">
+                    <tr>
+                        <td><s:property value="#singlePost.id"/></td>
+                        <td><s:property value="#singlePost.postTitle"/></td>
+                        <td><s:property value="#singlePost.postCategory"/></td>
+                        <td><s:property value="#singlePost.postContent"/></td>
+                    </tr>
+                </s:iterator>
             </table>
             <s:form action="managementAction.action">
                 <s:submit value="下一页" align="right" method="nextPage" />
