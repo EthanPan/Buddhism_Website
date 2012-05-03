@@ -20,5 +20,17 @@
         <action name="managementAction" class="manage">
             <result name="SUCCESS">management.jsp</result>
         </action>
+        <action name="newPage" class="newArticle">
+            <result name="SUCCESS">newArticle.jsp</result>
+        </action>    
+        <action name="articleAction" class="article">
+            <result name="SUCCESS" type="redirect">managementAction.action</result>
+            <result name="CANCEL"  type="redirect">managementAction.action</result>
+        </action> 
+        <action name="register" class="register">
+            <result name="INPUT" type="redirect">register.jsp</result>
+            <result name="SUCCESS" type="redirect">managementAction.action</result>
+            <result name="CANCEL"  type="redirect">managementAction.action</result>
+        </action>
     </package>
 </struts>

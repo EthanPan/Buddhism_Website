@@ -5,6 +5,9 @@
 package com.buddhism.service;
 
 import com.buddhism.dao.postDaoImpl;
+import com.buddhism.model.Administrator;
+import com.buddhism.model.Post;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,6 +35,42 @@ public class postServiceImpl implements postService
      */
     public void setPostDao(postDaoImpl postDao) {
         this.postDao = postDao;
+    }
+
+    @Override
+    public void setPost(Post post) throws Exception 
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Post setPost(Administrator postAuthor, String postTitle, String postContent, int postCategory, boolean postMedia) throws Exception 
+    {
+        Post post = new Post();
+        
+        post.setAdministrator(postAuthor);
+        post.setId(1);
+        post.setPostCategory((short)postCategory);
+        post.setPostClickTimes(0);
+        post.setPostContent(postContent);
+        post.setPostMedia(postMedia);
+        post.setPostTitle(postTitle);
+        Date date = new Date(System.currentTimeMillis());
+        //java.sql.Date sql_Date = new java.sql.Date(date.getTime());
+        post.setPostDate(date);
+        
+        try
+        {
+            Administrator author = post.getAdministrator();
+            author.getPosts().add(post);
+            postDao.addPost(post);
+            return post;
+        }catch(Exception err)
+        {
+            throw err;
+        }
+        
+       
     }
     
 }

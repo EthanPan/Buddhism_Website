@@ -4,7 +4,7 @@
  */
 package com.buddhism.dao;
 
-import com.buddhism.model.Post;
+import com.buddhism.model.Media;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -17,15 +17,15 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  *
  * @author Trine
  */
-public class postDaoImpl extends HibernateDaoSupport implements postDao
+public class mediaDaoImpl extends HibernateDaoSupport implements mediaDao
 {
 
     @Override
-    public void addPost(Post post) throws Exception 
+    public void addMedia(Media media) throws Exception 
     {
         try
         {
-           getHibernateTemplate().save(post); 
+            getHibernateTemplate().save(media);
         }catch(Exception err)
         {
             throw err;
@@ -33,39 +33,27 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
     }
 
     @Override
-    public Post getPost(int id) {
+    public Media getMedia(int id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Post getPost(String postTitle) {
+    public Media getMedia(String mediaTitle) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void deletePost(Post post) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List getListForPage(final int offset, final int length) 
+    public List<Media> getMedia(final boolean mediaType) 
     {
-        return getHibernateTemplate().executeFind(new HibernateCallback(){
+                return getHibernateTemplate().executeFind(new HibernateCallback(){
 
             @Override
             public Object doInHibernate(Session sn) throws HibernateException, SQLException {
-               Query query = sn.createQuery("from Post as p");
-               query.setFirstResult(offset);
-               query.setMaxResults(length);
+               Query query = sn.createQuery("from Media as m where m.media_Type = :type").setBoolean("type", mediaType);
                return query.list();
             }
         });
     }
+
     
-    @Override
-    public int getCount()
-    {
-        List list = getHibernateTemplate().find("select count(*) from Post");
-        return ((Long)list.iterator().next()).intValue();
-    }
 }

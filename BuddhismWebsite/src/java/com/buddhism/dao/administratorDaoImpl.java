@@ -13,10 +13,16 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  */
 public class administratorDaoImpl extends HibernateDaoSupport implements administratorDao
 {
-
     @Override
-    public void add(Administrator ad) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void add(Administrator ad) throws Exception 
+    {
+        try
+        {
+            getHibernateTemplate().save(ad);
+        }catch(Exception err)
+        {
+            throw err;
+        }
     }
 
     @Override

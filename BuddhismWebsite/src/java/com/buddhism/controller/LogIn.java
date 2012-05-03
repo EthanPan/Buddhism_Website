@@ -6,17 +6,31 @@ package com.buddhism.controller;
 
 import com.buddhism.model.Administrator;
 import com.buddhism.service.administratorServiceImpl;
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Trine
  */
-public class LogIn {
+public class LogIn extends ActionSupport implements SessionAware{
     
     private String userName;
     private String password;
     private administratorServiceImpl administratorService;
 
+    private Map session;   
+  
+    @Override
+    public void setSession(Map session) {   
+  
+       this.session = session;   
+  
+  
+    }    
+   
     public administratorServiceImpl getAdministratorService() {
         return administratorService;
     }
@@ -40,16 +54,20 @@ public class LogIn {
         this.userName = userName;
     }
 
+    @Override
     public String execute()
     {
         Administrator ad = getAdministratorService().getAdministrator(userName);
         if(ad != null)
         {
             if(password.equals(ad.getAdPassword()))
-            {
+            {   
+                this.session.put("BWuserName", userName);
                 return "SUCCESS";
             }
         }
         return "INPUT";
     }
+
+
 }

@@ -39,6 +39,8 @@
                 <s:if test="first">
                     <s:submit value="上一页" align="left" method="previousPage"/>
                 </s:if>
+                <s:submit value="新建文章"  action="newPage"/>    
+                <s:a href="register.jsp">新建管理员</s:a>
             </s:form>
             <%@include  file="/jsp/footer.jsp" %>
         </div>

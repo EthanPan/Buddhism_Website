@@ -76,4 +76,32 @@
             <ref bean="postDao"></ref>
         </property>
     </bean>
+       <bean id="mediaDao" class="com.buddhism.dao.mediaDaoImpl">
+         <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+    <bean id="mediaService" class="com.buddhism.service.mediaServiceImpl">
+         <property name="mediadao">
+            <ref bean="mediaDao"></ref>
+        </property>
+    </bean>
+    <bean id="newArticle" class="com.buddhism.controller.newPageAction">
+    </bean>
+    <bean id="article" class="com.buddhism.controller.newArticle">
+        <property name="adService">
+            <ref bean="adService"></ref>
+        </property>
+        <property name="postService">
+            <ref bean="postService"></ref>
+        </property>
+        <property name="mediaService">
+            <ref bean="mediaService"></ref>
+        </property>
+    </bean>    
+    <bean id="register" class="com.buddhism.controller.Register">
+        <property name="service">
+            <ref bean="adService"></ref>
+        </property>
+    </bean>
 </beans>

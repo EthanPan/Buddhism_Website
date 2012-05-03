@@ -30,13 +30,16 @@ public class ManagementAction{
         return "SUCCESS";
     }
 
-    public void nextPage(){
+    public String nextPage(){
+        
         currentIndex++;
+        return "SUCCESS";
     }
     
-    public void previousPage(){
+    public String previousPage(){
         if(currentIndex > 0)
             currentIndex--;
+        return "SUCCESS";
     }
 
     public postService getService() {
