@@ -18,4 +18,6 @@ public interface postService
     public void setPost(Post post) throws Exception;
     public Post setPost(Administrator postAuthor, String postTitle, String postContent, int postCategory, 
             boolean postMedia) throws Exception;
+    public int getPostNumber();
+    public List<Post> getPost(short postType);
 }

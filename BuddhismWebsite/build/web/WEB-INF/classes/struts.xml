@@ -28,9 +28,12 @@
             <result name="CANCEL"  type="redirect">managementAction.action</result>
         </action> 
         <action name="register" class="register">
-            <result name="INPUT" type="redirect">register.jsp</result>
             <result name="SUCCESS" type="redirect">managementAction.action</result>
             <result name="CANCEL"  type="redirect">managementAction.action</result>
+            <result name="input">register.jsp</result>
+        </action>
+        <action name="mainPage" class="mainPage">
+            <result name="SUCCESS">mainPage.jsp</result>
         </action>
     </package>
 </struts>

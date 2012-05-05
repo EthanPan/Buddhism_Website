@@ -38,7 +38,8 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
     }
 
     @Override
-    public Post getPost(String postTitle) {
+    public Post getPost(String postTitle) 
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -67,5 +68,11 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
     {
         List list = getHibernateTemplate().find("select count(*) from Post");
         return ((Long)list.iterator().next()).intValue();
+    }
+
+    @Override
+    public List<Post> getPost(final short postType) 
+    {
+         return  getHibernateTemplate().find("from Post as p");
     }
 }

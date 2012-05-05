@@ -1,9 +1,9 @@
-<%-- 
-    Document   : content
-    Created on : 2012-4-6, 1:26:33
-    Author     : EthanPan
---%>
 
+<%@page import="com.buddhism.model.Post"%>
+<%@page import="com.buddhism.model.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="com.buddhism.model.Constants"%>
+<%@page import="com.buddhism.service.postServiceImpl"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="content">
@@ -35,8 +35,23 @@
 	  			<div class="two">
 	  				<div class="left">
 	  					<div id="left_title">甘露教言</div>
-	  					first
-	  				</div>
+                                                <%
+                                                    postServiceImpl service = new postServiceImpl();
+                                                    List<Post> posts = null;
+                                                    posts = service.getPost((short)Constants.buddleWords);
+                                                    
+                                                    if (posts != null)
+                                                    {
+                                                        for (int i = posts.size() - 1; i > 0 && posts.size() - i < 5; i--)
+                                                        {
+                                                %>
+                                                <p><%= posts.get(i).getPostTitle() %></p>
+                                                
+                                                <%
+                                                        }
+                                                    }    
+                                                %>
+                                                </div>
 	  				<div class="right">
 	  					<div id="left_title">正法蘭若</div>
 	  					second

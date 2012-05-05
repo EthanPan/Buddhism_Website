@@ -30,7 +30,8 @@ public class mediaServiceImpl implements mediaService
     @Override
     public int getMediaNumber(boolean mediaType) 
     {
-        return getMediadao().getMedia(mediaType).size();
+        //return getMediadao().getMedia(mediaType).size();
+        return getMediadao().getMediaNumber(mediaType);
     }
 
     @Override

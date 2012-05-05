@@ -35,8 +35,10 @@
                 </s:iterator>
             </table>
             <s:form action="managementAction.action">
-                <s:submit value="下一页" align="right" method="nextPage" />
-                <s:if test="first">
+                <s:if test="#currentIndex != #maxPage">
+                    <s:submit value="下一页" align="right" method="nextPage" />
+                </s:if>
+                <s:if test="currentIndex != 0">
                     <s:submit value="上一页" align="left" method="previousPage"/>
                 </s:if>
                 <s:submit value="新建文章"  action="newPage"/>    

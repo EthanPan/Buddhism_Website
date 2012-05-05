@@ -19,20 +19,53 @@ public class ManagementAction{
     private List<Post> posts = new ArrayList<Post>();
     
     private int currentIndex = 0;
-    private int max = 20;
+    private final int max = 20;
+    private int maxIndex = 0;
+    private int maxPage = 0;
 
     private postService service;
     
+    
+    
+    public ManagementAction()
+    {
+
+    }
+
+    public int getMaxIndex() {
+        return maxIndex;
+    }
+
+    public void setMaxIndex(int maxIndex) {
+        this.maxIndex = maxIndex;
+    }
+
+    public int getMaxPage() {
+        return maxPage;
+    }
+
+    public void setMaxPage(int maxPage) {
+        this.maxPage = maxPage;
+    }
+    
     public String execute(){
+
+        maxIndex = service.getPostNumber();
+        maxPage = maxIndex % 20 - 1;
         
-        posts = service.getPage(currentIndex * max, max);
+        if (max * currentIndex + max > maxIndex)
+            posts = service.getPage(currentIndex * max, maxIndex);
+        else
+            posts = service.getPage(currentIndex * max, max);
 
         return "SUCCESS";
     }
 
     public String nextPage(){
+
         
-        currentIndex++;
+        if (currentIndex != maxPage)
+            currentIndex++;
         return "SUCCESS";
     }
     
@@ -67,10 +100,6 @@ public class ManagementAction{
     
     public int getMax() {
         return max;
-    }
-
-    public void setMax(int max) {
-        this.max = max;
     }
 
     public List<Post> getPosts() {

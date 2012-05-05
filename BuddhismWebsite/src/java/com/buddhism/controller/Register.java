@@ -56,19 +56,26 @@ public class Register extends ActionSupport {
     @Override
     public String execute() throws Exception {
         
-        if (userName.length() == 0 || password.length() == 0 || passwordAck.length() == 0)
-            return "INPUT";
-        
-        if (!password.equals(passwordAck))
-            return "INPUT";
-        
         service.setAdministrator(userName, password, 0);
         
         return "SUCCESS";
     }
     
-    public String cancel(){
+    public String cancel(){ 
         
         return "CANCEL";
+    }
+    
+    @Override
+    public void validate()
+    {
+     if (userName.length() == 0)
+         addFieldError("userName", "用户名不能为空");
+     if (password.length() == 0)
+        addFieldError("password", "密码不能为空");
+     if (passwordAck.length() == 0)
+        addFieldError("passwordAck", "密码确认不能为空");
+     if (!(passwordAck.equals(password)))
+         addFieldError("passwordAck", "两次输入的密码不同");
     }
 }

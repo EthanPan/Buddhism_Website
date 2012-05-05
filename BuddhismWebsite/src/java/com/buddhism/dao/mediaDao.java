@@ -17,4 +17,5 @@ public interface mediaDao
     public Media getMedia(int id);
     public Media getMedia(String mediaTitle);
     public List<Media> getMedia(boolean mediaType);
+    public int getMediaNumber(boolean mediaType);
 }

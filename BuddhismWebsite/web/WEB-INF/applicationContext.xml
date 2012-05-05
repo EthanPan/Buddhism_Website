@@ -61,11 +61,6 @@
             <ref bean="adService"/>
         </property>
     </bean>
-    <bean id="manage" class="com.buddhism.controller.ManagementAction">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>
-    </bean>
     <bean id="postDao" class="com.buddhism.dao.postDaoImpl">
         <property name="sessionFactory">
             <ref bean="sessionFactory"></ref>
@@ -103,5 +98,15 @@
         <property name="service">
             <ref bean="adService"></ref>
         </property>
+    </bean>
+     <bean id="manage" class="com.buddhism.controller.ManagementAction">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>
+    </bean>
+    <bean id="mainPage" class="com.buddhism.controller.MainPageAction">
+        <property name="service">
+            <ref bean="postService"/>
+       </property>
     </bean>
 </beans>

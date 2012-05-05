@@ -72,5 +72,21 @@ public class postServiceImpl implements postService
         
        
     }
+
+    @Override
+    public int getPostNumber() 
+    {
+        return postDao.getCount();
+    }
+
+    @Override
+    public List<Post> getPost(short postType) 
+    {   
+        if(postDao == null)
+        {
+            postDao = new postDaoImpl();
+        }
+        return postDao.getPost(postType);
+    }
     
 }

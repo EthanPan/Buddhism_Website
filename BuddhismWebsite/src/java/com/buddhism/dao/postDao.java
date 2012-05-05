@@ -19,4 +19,5 @@ public interface postDao
     public void deletePost(Post post);
     public List getListForPage(final int offset, final int length);
     public int getCount();
+    public List<Post> getPost(short postType);
 }
