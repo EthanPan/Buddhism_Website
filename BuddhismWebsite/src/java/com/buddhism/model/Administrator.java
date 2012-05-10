@@ -77,10 +77,6 @@ public class Administrator  implements java.io.Serializable {
     public void setPosts(Set<Post> posts) {
         this.posts = posts;
     }
-
-
-
-
 }
 
 

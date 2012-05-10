@@ -63,8 +63,10 @@ public class administratorServiceImpl implements administratorService
         administrator.setAdEmail(adEmail);
         administrator.setAdLevel(adLevel);
         administrator.setAdPassword(adPassword);
+        
         try {
-            adDao.add(administrator);
+            adDao.add(administrator
+                    );
         } catch (Exception ex) {
             Logger.getLogger(administratorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

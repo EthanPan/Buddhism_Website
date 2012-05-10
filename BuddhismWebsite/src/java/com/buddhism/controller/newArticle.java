@@ -28,7 +28,7 @@ public class newArticle extends ActionSupport implements SessionAware{
     private String title = "";
     private String content = "";
     private int articleCat;
-    private File file;
+    private File file = null;
     
     private administratorServiceImpl adService;
     private postServiceImpl postService;
@@ -79,44 +79,44 @@ public class newArticle extends ActionSupport implements SessionAware{
     }
     
     public String deliver(){
-    
-        String userName = (String)this.session.get("BWuserName");
-        Administrator admin = this.adService.getAdministrator(userName);
+   
+        Administrator admin = (Administrator) session.get("User");
         try 
         {
             String path = "C:\\BuddhismWebsite\\pics\\";
         
             int length=2097152;
-        
-            InputStream is = new FileInputStream(file);
-            int index = mediaService.getMediaNumber(true);
-            
-            path += index + ".jpg";
-            File newPic = new File(path);
-            
-            if (newPic.createNewFile())
+            if (file != null)
             {
-                FileOutputStream out = new FileOutputStream(newPic);
-                
-                byte[] buffer=new byte[length];
-        
-                while(true)
+                InputStream is = new FileInputStream(file);
+                int index = mediaService.getMediaNumber(true);
+
+                path += index + ".jpg";
+                File newPic = new  File(path);
+
+                if (newPic.createNewFile())                 
                 {
-                    int ins=is.read(buffer);
-                    if(ins==-1)
+                    FileOutputStream out = new FileOutputStream(newPic);
+
+                    byte[] buffer=new byte[length];
+
+                    while(true)
                     {
-                        is.close();
-                        out.flush();
-                        out.close();
-                        break;
+                        int ins=is.read(buffer);
+                        if(ins==-1)
+                        {
+                            is.close();
+                            out.flush();
+                            out.close();
+                            break;
+                        }
+                        else
+                            out.write(buffer,0,ins);
                     }
-                    else
-                        out.write(buffer,0,ins);
                 }
-                
+            }
                 Post post = postService.setPost(admin, title, content, articleCat, true);
                 mediaService.setMedia(post, path, true);
-            }
         } catch (Exception ex) {
             Logger.getLogger(newArticle.class.getName()).log(Level.SEVERE, null, ex);
         }

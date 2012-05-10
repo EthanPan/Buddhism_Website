@@ -5,16 +5,20 @@
  */
 package com.buddhism.controller;
 
+import com.buddhism.model.Administrator;
 import com.buddhism.model.Post;
 import com.buddhism.service.postService;
+import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Trine
  */
-public class ManagementAction{
+public class ManagementAction extends ActionSupport implements SessionAware{ 
     
     private List<Post> posts = new ArrayList<Post>();
     
@@ -23,9 +27,17 @@ public class ManagementAction{
     private int maxIndex = 0;
     private int maxPage = 0;
 
+    private Map session;
+    
     private postService service;
     
-    
+    @Override
+    public void setSession(Map session) {   
+  
+       this.session = session;   
+  
+  
+    }  
     
     public ManagementAction()
     {
@@ -48,15 +60,19 @@ public class ManagementAction{
         this.maxPage = maxPage;
     }
     
+    @Override
     public String execute(){
-
+        
+        Administrator ad = (Administrator)session.get("User");
+        
         maxIndex = service.getPostNumber();
         maxPage = maxIndex % 20 - 1;
         
         if (max * currentIndex + max > maxIndex)
-            posts = service.getPage(currentIndex * max, maxIndex);
+            posts = service.getPostForAdministrator(ad, currentIndex * max, maxIndex);
+            //posts = service.getPage(currentIndex * max, maxIndex);
         else
-            posts = service.getPage(currentIndex * max, max);
+            posts = service.getPostForAdministrator(ad, currentIndex * max, max);
 
         return "SUCCESS";
     }

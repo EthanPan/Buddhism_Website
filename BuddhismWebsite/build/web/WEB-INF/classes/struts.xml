@@ -35,5 +35,9 @@
         <action name="mainPage" class="mainPage">
             <result name="SUCCESS">mainPage.jsp</result>
         </action>
+        <action name="logOut" class="logOut">
+            <result name="SUCCESS">logIn.jsp</result>
+        </action>
+      
     </package>
 </struts>

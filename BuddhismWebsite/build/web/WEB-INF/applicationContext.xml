@@ -109,4 +109,7 @@
             <ref bean="postService"/>
        </property>
     </bean>
+    <bean id="logOut" class="com.buddhism.controller.LogOut">
+        
+    </bean>
 </beans>

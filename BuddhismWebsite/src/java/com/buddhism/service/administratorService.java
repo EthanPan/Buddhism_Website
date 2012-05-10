@@ -5,6 +5,8 @@
 package com.buddhism.service;
 
 import com.buddhism.model.Administrator;
+import com.buddhism.model.Post;
+import java.util.List;
 
 /**
  *

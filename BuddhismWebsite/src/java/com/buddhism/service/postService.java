@@ -20,4 +20,5 @@ public interface postService
             boolean postMedia) throws Exception;
     public int getPostNumber();
     public List<Post> getPost(short postType);
+    public List<Post> getPostForAdministrator(final Administrator administrator, final int offset, final int length);
 }

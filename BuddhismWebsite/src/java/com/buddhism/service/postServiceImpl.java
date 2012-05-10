@@ -9,7 +9,6 @@ import com.buddhism.model.Administrator;
 import com.buddhism.model.Post;
 import java.util.Date;
 import java.util.List;
-
 /**
  *
  * @author Trine
@@ -61,8 +60,8 @@ public class postServiceImpl implements postService
         
         try
         {
-            Administrator author = post.getAdministrator();
-            author.getPosts().add(post);
+            //Administrator author = post.getAdministrator();
+            //author.getPosts().add(post);
             postDao.addPost(post);
             return post;
         }catch(Exception err)
@@ -87,6 +86,12 @@ public class postServiceImpl implements postService
             postDao = new postDaoImpl();
         }
         return postDao.getPost(postType);
+    }
+
+    @Override
+    public List<Post> getPostForAdministrator(final Administrator administrator, int offset, int length) 
+    {
+        return postDao.getPostForAdministrator(administrator, offset, length);
     }
     
 }

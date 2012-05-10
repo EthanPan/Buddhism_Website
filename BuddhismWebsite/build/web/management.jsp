@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
@@ -16,6 +16,10 @@
     <title>管理</title>
 </head>
     <body>
+        <s:if test="#session.User == null">
+            请以管理员身份登入。
+        </s:if>
+        <s:else>
         <div class="wrapper">
             <%@ include file="/jsp/banner_nav.jsp" %>
             <table border="0">
@@ -42,9 +46,13 @@
                     <s:submit value="上一页" align="left" method="previousPage"/>
                 </s:if>
                 <s:submit value="新建文章"  action="newPage"/>    
-                <s:a href="register.jsp">新建管理员</s:a>
+                <s:if test="#session.User.adLevel == 0">
+                    <s:a href="register.jsp">新建管理员</s:a>
+                </s:if>
+                <s:submit value="登出" action="logOut"/>
             </s:form>
             <%@include  file="/jsp/footer.jsp" %>
         </div>
+        </s:else>
     </body>
 </html>

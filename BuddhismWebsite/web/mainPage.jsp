@@ -46,7 +46,7 @@
 	  				<div class="left">
 	  					<div id="left_title">甘露教言</div>
                                                 <s:iterator value="buddleWords" id="buddleWord">
-                                                        <p><s:property value="#buddleWord.postTitle"/></p>
+                                                    <p><s:property value="#buddleWord.postTitle"/></p>
                                                 </s:iterator>
                                         </div>
 	  				<div class="right">

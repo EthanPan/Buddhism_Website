@@ -12,17 +12,17 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @author nankonami
  */
 public class administratorDaoImpl extends HibernateDaoSupport implements administratorDao
-{
+{   
     @Override
     public void add(Administrator ad) throws Exception 
     {
-        try
-        {
-            getHibernateTemplate().save(ad);
-        }catch(Exception err)
-        {
-            throw err;
-        }
+            try
+            {
+                getHibernateTemplate().save(ad);
+            }catch(Exception err)
+            {
+                throw err;
+            }
     }
 
     @Override
@@ -33,7 +33,7 @@ public class administratorDaoImpl extends HibernateDaoSupport implements adminis
     @Override
     public Administrator getAdministrator(String adName) 
     {
+        
        return (Administrator)getHibernateTemplate().find("from Administrator as a where a.adName = ?", adName).get(0);
-    }
-    
+    }    
 }

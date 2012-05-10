@@ -16,10 +16,23 @@ public class Register extends ActionSupport {
     private String userName;
     private String password;
     private String passwordAck;
+    
     private administratorService service;
+    
+    private int statue;
+    
+    
 
     public administratorService getService() {
         return service;
+    }
+
+    public int getStatue() {
+        return statue;
+    }
+
+    public void setStatue(int statue) {
+        this.statue = statue;
     }
 
     public void setService(administratorService service) {
@@ -56,7 +69,7 @@ public class Register extends ActionSupport {
     @Override
     public String execute() throws Exception {
         
-        service.setAdministrator(userName, password, 0);
+        service.setAdministrator(userName, password, statue);
         
         return "SUCCESS";
     }
