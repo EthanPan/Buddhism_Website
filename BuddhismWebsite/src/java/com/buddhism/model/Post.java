@@ -1,5 +1,5 @@
 package com.buddhism.model;
-// Generated 2012-4-18 15:13:24 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-11 11:26:00 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -18,15 +18,16 @@ public class Post  implements java.io.Serializable {
      private String postTitle;
      private String postContent;
      private int postClickTimes;
-     private short postCategory;
+     private int postCategory;
      private boolean postMedia;
+     private boolean postUp;
      private Set<Media> medias = new HashSet<Media>(0);
 
     public Post() {
     }
 
 	
-    public Post(Administrator administrator, Date postDate, String postTitle, String postContent, int postClickTimes, short postCategory, boolean postMedia) {
+    public Post(Administrator administrator, Date postDate, String postTitle, String postContent, int postClickTimes, int postCategory, boolean postMedia) {
         this.administrator = administrator;
         this.postDate = postDate;
         this.postTitle = postTitle;
@@ -35,7 +36,7 @@ public class Post  implements java.io.Serializable {
         this.postCategory = postCategory;
         this.postMedia = postMedia;
     }
-    public Post(Administrator administrator, Date postDate, String postTitle, String postContent, int postClickTimes, short postCategory, boolean postMedia, Set<Media> medias) {
+    public Post(Administrator administrator, Date postDate, String postTitle, String postContent, int postClickTimes, int postCategory, boolean postMedia, Set<Media> medias) {
        this.administrator = administrator;
        this.postDate = postDate;
        this.postTitle = postTitle;
@@ -88,11 +89,11 @@ public class Post  implements java.io.Serializable {
     public void setPostClickTimes(int postClickTimes) {
         this.postClickTimes = postClickTimes;
     }
-    public short getPostCategory() {
+    public int getPostCategory() {
         return this.postCategory;
     }
     
-    public void setPostCategory(short postCategory) {
+    public void setPostCategory(int postCategory) {
         this.postCategory = postCategory;
     }
     public boolean isPostMedia() {
@@ -108,6 +109,20 @@ public class Post  implements java.io.Serializable {
     
     public void setMedias(Set<Media> medias) {
         this.medias = medias;
+    }
+
+    /**
+     * @return the postUp
+     */
+    public boolean isPostUp() {
+        return postUp;
+    }
+
+    /**
+     * @param postUp the postUp to set
+     */
+    public void setPostUp(boolean postUp) {
+        this.postUp = postUp;
     }
 
 

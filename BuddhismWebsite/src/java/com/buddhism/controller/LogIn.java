@@ -17,7 +17,7 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class LogIn extends ActionSupport implements SessionAware{
     
-    private String userName;
+    private String userName = null;
     private String password;
     private administratorServiceImpl administratorService;
 
@@ -57,8 +57,9 @@ public class LogIn extends ActionSupport implements SessionAware{
     @Override
     public String execute()
     {
+        if (userName == null)
+            return "INPUT";
         Administrator ad = getAdministratorService().getAdministrator(userName);
-        int adLevel = ad.getAdLevel();
         
         if(ad != null)
         {

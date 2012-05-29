@@ -28,6 +28,7 @@
                     <th>文章名称&nbsp;&nbsp; </th>
                     <th>文章类型&nbsp;&nbsp; </th>
                     <th>文章内容&nbsp;&nbsp; </th>
+                    <th>设置&nbsp;&nbsp;</th>
                 </tr>
                 <s:iterator value="posts" id="singlePost">
                     <tr>
@@ -35,6 +36,21 @@
                         <td><s:property value="#singlePost.postTitle"/></td>
                         <td><s:property value="#singlePost.postCategory"/></td>
                         <td><s:property value="#singlePost.postContent"/></td>
+                        <s:if test="#singlePost.postMedia == true">
+                            <td>
+                                <s:form action="UpAction.action">
+                                    <s:hidden name="title" value="%{#singlePost.postTitle}" />
+                                <s:if test="#singlePost.postUp == true">
+                                    <s:hidden name="isUp" value="false"/>
+                                    <s:submit value="取消放于首页"/>
+                                </s:if>
+                                <s:else>
+                                    <s:hidden name="isUp" value="true"/>
+                                    <s:submit value="放于首页"/>
+                                </s:else>
+                                </s:form>
+                            </td>
+                        </s:if>
                     </tr>
                 </s:iterator>
             </table>

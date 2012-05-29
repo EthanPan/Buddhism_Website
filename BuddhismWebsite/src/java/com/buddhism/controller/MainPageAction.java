@@ -5,15 +5,18 @@
 package com.buddhism.controller;
 
 import com.buddhism.model.Constants;
+import com.buddhism.model.PicturePost;
 import com.buddhism.model.Post;
 import com.buddhism.service.postService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
 
 
  
-public class MainPageAction 
+public class MainPageAction implements SessionAware
 {
     private List<Post> informs = new ArrayList<Post>();
     private List<Post> associationMessage = new ArrayList<Post>();
@@ -24,9 +27,31 @@ public class MainPageAction
     private List<Post> wisdom = new ArrayList<Post>();
     private List<Post> experienceShare = new ArrayList<Post>();
     private List<Post> videoes = new ArrayList<Post>();
+    private List<PicturePost> pictures = new ArrayList<PicturePost>();
     
     private postService service;
 
+    
+    private Map session;   
+  
+    @Override
+    public void setSession(Map session) {   
+  
+       this.session = session;   
+  
+  
+    }    
+    
+    public List<PicturePost> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<PicturePost> pictures) {
+        this.pictures = pictures;
+    }
+
+    
+    
     public List<Post> getActivities() {
         return activities;
     }
@@ -111,6 +136,8 @@ public class MainPageAction
     
     public String execute(){
     
+        session.remove("pictures");
+        
         informs = service.getPost((short)Constants.informs);
         associationMessage = service.getPost((short)Constants.associationMessage);
         eventCalendar = service.getPost((short)Constants.eventCalendar);
@@ -120,6 +147,17 @@ public class MainPageAction
         experienceShare = service.getPost((short)Constants.experienceShare);
         videoes = service.getPost((short)Constants.videoes); 
         lastestLaw = service.getPost((short)Constants.lastestLaw);
+        List<Post> temp = service.getPost();
+        
+        for (int i = 0; i != temp.size(); i++)
+        {
+            PicturePost picturePost = new PicturePost(temp.get(i));
+            pictures.add(picturePost);
+        }
+        
+        session.put("pictures", pictures);
+        
+        
         
         return "SUCCESS";
     }

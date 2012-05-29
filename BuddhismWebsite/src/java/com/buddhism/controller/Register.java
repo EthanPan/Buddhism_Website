@@ -17,11 +17,19 @@ public class Register extends ActionSupport {
     private String password;
     private String passwordAck;
     
+    private boolean isTop;
+    
     private administratorService service;
     
     private int statue;
-    
-    
+
+    public boolean isIsTop() {
+        return isTop;
+    }
+
+    public void setIsTop(boolean isTop) {
+        this.isTop = isTop;
+    }
 
     public administratorService getService() {
         return service;
@@ -69,7 +77,7 @@ public class Register extends ActionSupport {
     @Override
     public String execute() throws Exception {
         
-        service.setAdministrator(userName, password, statue);
+        service.setAdministrator(userName, password, statue,1);
         
         return "SUCCESS";
     }

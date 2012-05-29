@@ -7,21 +7,33 @@
     
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        <interceptors>
+            <interceptor name="WebInfoPath" class="com.stockvote.interceptor.WebInfointerceptor"></interceptor>
+
+                    <interceptor-stack name="defaultStack1">
+                    <!--interceptor-ref name="log"></interceptor-ref!-->
+                    <interceptor-ref name="defaultStack"></interceptor-ref>
+                    <interceptor-ref name="WebInfoPath"></interceptor-ref>
+
+                    </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="defaultStack1"></default-interceptor-ref>
+        
         <action name="logIn" class="logAction">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
-            <result name="INPUT">logIn.jsp</result>
+            <result name="INPUT">/WEB-INF/jsp/logIn.jsp</result>
         </action>
         <action name="managementAction" class="manage" method="nextPage">
-            <result name="SUCCESS" type="redirect">management.jsp</result>
+            <result name="SUCCESS" type="redirect">/WEB-INF/jsp/management.jsp</result>
         </action>
         <action name="managementAction" class="manage" method="previousPage">
-            <result name="SUCCESS" type="redirect">management.jsp</result>
+            <result name="SUCCESS" type="redirect">/WEB-INF/jsp/management.jsp</result>
         </action>
         <action name="managementAction" class="manage">
-            <result name="SUCCESS">management.jsp</result>
+            <result name="SUCCESS">/WEB-INF/jsp/management.jsp</result>
         </action>
         <action name="newPage" class="newArticle">
-            <result name="SUCCESS">newArticle.jsp</result>
+            <result name="SUCCESS">/WEB-INF/jsp/newArticle.jsp</result>
         </action>    
         <action name="articleAction" class="article">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
@@ -30,14 +42,16 @@
         <action name="register" class="register">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
             <result name="CANCEL"  type="redirect">managementAction.action</result>
-            <result name="input">register.jsp</result>
+            <result name="input">/WEB-INF/jsp/register.jsp</result>
         </action>
         <action name="mainPage" class="mainPage">
-            <result name="SUCCESS">mainPage.jsp</result>
+            <result name="SUCCESS">/WEB-INF/jsp/mainPage.jsp</result>
         </action>
         <action name="logOut" class="logOut">
-            <result name="SUCCESS">logIn.jsp</result>
+            <result name="SUCCESS">/WEB-INF/jsp/logIn.jsp</result>
         </action>
-      
+        <action name="UpAction" class="UpAction">
+            <result name="SUCCESS" type="redirect">managementAction.action</result>
+        </action>
     </package>
 </struts>

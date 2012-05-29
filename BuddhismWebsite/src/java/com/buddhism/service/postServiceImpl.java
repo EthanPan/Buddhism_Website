@@ -43,7 +43,7 @@ public class postServiceImpl implements postService
     }
 
     @Override
-    public Post setPost(Administrator postAuthor, String postTitle, String postContent, int postCategory, boolean postMedia) throws Exception 
+    public Post setPost(Administrator postAuthor, String postTitle, String postContent, int postCategory, boolean postMedia, boolean postUp) throws Exception 
     {
         Post post = new Post();
         
@@ -57,6 +57,7 @@ public class postServiceImpl implements postService
         Date date = new Date(System.currentTimeMillis());
         //java.sql.Date sql_Date = new java.sql.Date(date.getTime());
         post.setPostDate(date);
+        post.setPostUp(postUp);
         
         try
         {
@@ -92,6 +93,24 @@ public class postServiceImpl implements postService
     public List<Post> getPostForAdministrator(final Administrator administrator, int offset, int length) 
     {
         return postDao.getPostForAdministrator(administrator, offset, length);
+    }
+
+    @Override
+    public List<Post> getPost() 
+    {
+        return postDao.getPost(true);
+    }
+
+    @Override
+    public void UpdatePost(String postTitle, boolean update) 
+    {
+            postDao.Update(postTitle, update);
+    }
+
+    @Override
+    public int getUpPostNumber() 
+    {
+        return postDao.getUpPostCount();
     }
     
 }

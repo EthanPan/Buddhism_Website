@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
@@ -81,15 +82,36 @@ public class newArticle extends ActionSupport implements SessionAware{
     public String deliver(){
    
         Administrator admin = (Administrator) session.get("User");
+        boolean hasMedia = false;
         try 
         {
-            String path = "C:\\BuddhismWebsite\\pics\\";
+            String path = ServletActionContext.getServletContext().getRealPath("/");
+            
+            int times = 0;
+            int index;
+            
+            for (index = path.length() - 1; index != -1; index--)
+            {
+                if (path.charAt(index) == '/' || path.charAt(index) == '\\')
+                    times++;
+                if (times == 3)
+                    break;
+            }
+            
+            path = path.substring(0, index);
+            path += "\\web\\pics\\";
+            
+            File folder = new File(path);
+            if (!folder.exists())
+                folder.mkdir();;
         
             int length=2097152;
             if (file != null)
             {
+                hasMedia = true;
+                
                 InputStream is = new FileInputStream(file);
-                int index = mediaService.getMediaNumber(true);
+                index = mediaService.getMediaNumber(true);
 
                 path += index + ".jpg";
                 File newPic = new  File(path);
@@ -115,7 +137,7 @@ public class newArticle extends ActionSupport implements SessionAware{
                     }
                 }
             }
-                Post post = postService.setPost(admin, title, content, articleCat, true);
+                Post post = postService.setPost(admin, title, content, articleCat, hasMedia, false);
                 mediaService.setMedia(post, path, true);
         } catch (Exception ex) {
             Logger.getLogger(newArticle.class.getName()).log(Level.SEVERE, null, ex);

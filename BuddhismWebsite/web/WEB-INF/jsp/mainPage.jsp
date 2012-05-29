@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="com.buddhism.model.PicturePost"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,10 +37,15 @@
 			<div id="pictureswall">	
 			    
 			   <div id="pictures">
-			        <a href="#" target="_blank"><img src="imgs/p1.jpg" title="嘉定校区风光1" alt="嘉定校区风光1" /></a>
-			        <a href="#" target="_blank"><img src="imgs/p2.jpg" title="嘉定校区风光2" alt="嘉定校区风光2" /></a>
-			        <a href="#" target="_blank"><img src="imgs/p3.jpg" title="嘉定校区风光3" alt="嘉定校区风光3" /></a>
-			        <a href="#" target="_blank"><img src="imgs/p4.jpg" title="嘉定校区风光4" alt="嘉定校区风光4" /></a>
+                               <%
+                                    List<PicturePost> pictures = (List<PicturePost>)session.getAttribute("pictures");
+                                    for (int i = 0; i != pictures.size(); i++)
+                                    {
+                               %>
+                               <a href="#" target="_blank"><img src="<%= pictures.get(i).getUrl() %>" alt="<%= pictures.get(i).getTitle() %>" title="<%= pictures.get(i).getTitle() %>" /></a>
+                               <%
+                                    }
+                               %>
 			   </div>
 			</div>
 			</div>	  	

@@ -17,8 +17,11 @@ public interface postService
     public List getPage(final int offset, final int length);
     public void setPost(Post post) throws Exception;
     public Post setPost(Administrator postAuthor, String postTitle, String postContent, int postCategory, 
-            boolean postMedia) throws Exception;
+            boolean postMedia, boolean postUp) throws Exception;
     public int getPostNumber();
+    public int getUpPostNumber();
+    public void UpdatePost(String postTitle, boolean update);
     public List<Post> getPost(short postType);
+    public List<Post> getPost();
     public List<Post> getPostForAdministrator(final Administrator administrator, final int offset, final int length);
 }

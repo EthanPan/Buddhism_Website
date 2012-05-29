@@ -24,12 +24,12 @@ public class administratorServiceImpl implements administratorService
     }
 
     @Override
-    public void setAdministrator(String adName, String adPassword, int adLevel) 
+    public void setAdministrator(String adName, String adPassword, int adLevel, int adRandom) 
     {
         Administrator administrator = new Administrator();
-        administrator.setId((short)1);
+        administrator.setId(1);
+        administrator.setAdRandom(adRandom);
         administrator.setAdName(adName);
-        administrator.setAdEmail(null);
         administrator.setAdLevel(adLevel);
         administrator.setAdPassword(adPassword);
         
@@ -52,23 +52,5 @@ public class administratorServiceImpl implements administratorService
      */
     public void setAdDao(administratorDaoImpl adDao) {
         this.adDao = adDao;
-    }
-
-    @Override
-    public void setAdministrator(String adName, String adPassword, String adEmail, int adLevel) 
-    {
-        Administrator administrator = new Administrator();
-        administrator.setId((short)1);
-        administrator.setAdName(adName);
-        administrator.setAdEmail(adEmail);
-        administrator.setAdLevel(adLevel);
-        administrator.setAdPassword(adPassword);
-        
-        try {
-            adDao.add(administrator
-                    );
-        } catch (Exception ex) {
-            Logger.getLogger(administratorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 }

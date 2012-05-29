@@ -1,5 +1,5 @@
 package com.buddhism.model;
-// Generated 2012-4-18 15:13:24 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-11 11:26:00 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -11,10 +11,10 @@ import java.util.Set;
 public class Administrator  implements java.io.Serializable {
 
 
-     private Short id;
+     private Integer id;
      private String adName;
      private String adPassword;
-     private String adEmail;
+     private int adRandom;
      private int adLevel;
      private Set<Post> posts = new HashSet<Post>(0);
 
@@ -22,24 +22,25 @@ public class Administrator  implements java.io.Serializable {
     }
 
 	
-    public Administrator(String adName, String adPassword, int adLevel) {
+    public Administrator(String adName, String adPassword, int adRandom, int adLevel) {
         this.adName = adName;
         this.adPassword = adPassword;
+        this.adRandom = adRandom;
         this.adLevel = adLevel;
     }
-    public Administrator(String adName, String adPassword, String adEmail, int adLevel, Set<Post> posts) {
+    public Administrator(String adName, String adPassword, int adRandom, int adLevel, Set<Post> posts) {
        this.adName = adName;
        this.adPassword = adPassword;
-       this.adEmail = adEmail;
+       this.adRandom = adRandom;
        this.adLevel = adLevel;
        this.posts = posts;
     }
    
-    public Short getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(Short id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getAdName() {
@@ -56,12 +57,12 @@ public class Administrator  implements java.io.Serializable {
     public void setAdPassword(String adPassword) {
         this.adPassword = adPassword;
     }
-    public String getAdEmail() {
-        return this.adEmail;
+    public int getAdRandom() {
+        return this.adRandom;
     }
     
-    public void setAdEmail(String adEmail) {
-        this.adEmail = adEmail;
+    public void setAdRandom(int adRandom) {
+        this.adRandom = adRandom;
     }
     public int getAdLevel() {
         return this.adLevel;
@@ -77,6 +78,10 @@ public class Administrator  implements java.io.Serializable {
     public void setPosts(Set<Post> posts) {
         this.posts = posts;
     }
+
+
+
+
 }
 
 

@@ -6,7 +6,6 @@ package com.buddhism.dao;
 
 import com.buddhism.model.Administrator;
 import com.buddhism.model.Post;
-import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -103,5 +102,32 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
                return (List<Post>)query.list();
             }
         });
+    }
+
+    @Override
+    public List<Post> getPost(boolean postUp) 
+    {
+        return (List<Post>)getHibernateTemplate().find("from Post as p where p.postUp = ?", postUp);
+    }
+
+    @Override
+    public void Update(String postTitle, boolean update) 
+    {   
+        Post newPost = this.getPost(postTitle);
+        
+       Session s = this.getSession();
+       s.beginTransaction();
+       Query query = s.createQuery("update Post p set p.postUp = :update where p.postTitle = :postTitle");
+       query.setParameter("update", update);
+       query.setParameter("postTitle", postTitle);
+       
+       query.executeUpdate();
+       s.getTransaction().commit();
+    }
+
+    @Override
+    public int getUpPostCount() 
+    {
+       return this.getPost(true).size();
     }
 }

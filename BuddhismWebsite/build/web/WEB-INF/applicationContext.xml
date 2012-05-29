@@ -42,7 +42,11 @@
                 </list>
             </property>
             <property name="hibernateProperties">
-                <value>hibernate.dialect=org.hibernate.dialect.MySQLDialect</value>
+              <props>  
+                    <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                    <prop key="hibernate.show_sql">true</prop>  
+                    <prop key="hibernate.format_sql">true</prop>  
+                </props>  
             </property>
     </bean>
     <!--为Dao类注入sessionFactory-->
@@ -111,5 +115,10 @@
     </bean>
     <bean id="logOut" class="com.buddhism.controller.LogOut">
         
+    </bean>
+    <bean id="UpAction" class="com.buddhism.controller.UpAndDownAction">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>
     </bean>
 </beans>

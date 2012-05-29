@@ -19,5 +19,6 @@ public class Constants {
    public static final int wisdom = 7;
    public static final int experienceShare = 8;
    public static final int videoes = 9;
-
+   
+   public static final int maxMainPagePics = 4;
 }

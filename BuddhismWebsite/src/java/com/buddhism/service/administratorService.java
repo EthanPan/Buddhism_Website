@@ -5,8 +5,6 @@
 package com.buddhism.service;
 
 import com.buddhism.model.Administrator;
-import com.buddhism.model.Post;
-import java.util.List;
 
 /**
  *
@@ -15,6 +13,5 @@ import java.util.List;
 public interface administratorService 
 {
     public Administrator getAdministrator(String adName);
-    public void setAdministrator(String adName, String adPassword, int adLevel);
-    public void setAdministrator(String adName, String adPassword, String adEmail, int adLevel);
+    public void setAdministrator(String adName, String adPassword, int adLevel, int adRandom);
 }
