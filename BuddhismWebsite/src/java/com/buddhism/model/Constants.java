@@ -20,5 +20,7 @@ public class Constants {
    public static final int experienceShare = 8;
    public static final int videoes = 9;
    
+   public static String[] type = {"重要公告","协会法讯","行事历","甘露教言","活动剪影", "最新法讯", "智慧点滴", "经验分享", "影音专区"};
+   
    public static final int maxMainPagePics = 4;
 }

@@ -74,6 +74,9 @@ public class ManagementAction extends ActionSupport implements SessionAware{
         else
             posts = service.getPostForAdministrator(ad, currentIndex * max, max);
 
+        for (int i = 0; i != posts.size(); i++)
+            posts.get(i).setType();
+        
         return "SUCCESS";
     }
 

@@ -34,7 +34,7 @@
                     <tr>
                         <td><s:property value="#singlePost.id"/></td>
                         <td><s:property value="#singlePost.postTitle"/></td>
-                        <td><s:property value="#singlePost.postCategory"/></td>
+                        <td><s:property value="#singlePost.type"/></td>
                         <td><s:property value="#singlePost.postContent"/></td>
                         <s:if test="#singlePost.postMedia == true">
                             <td>

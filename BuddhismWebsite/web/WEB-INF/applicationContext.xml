@@ -116,9 +116,72 @@
     <bean id="logOut" class="com.buddhism.controller.LogOut">
         
     </bean>
+    <bean id="teacherPage" class="com.buddhism.controller.TeacherPage">
+        
+    </bean>
+    <bean id="postPage" class="com.buddhism.controller.PostPage">
+        
+    </bean>
     <bean id="UpAction" class="com.buddhism.controller.UpAndDownAction">
         <property name="service">
             <ref bean="postService"/>
         </property>
+    </bean>
+    <bean id="teacher1Page" class="com.buddhism.controller.teacher1Page">
+        
+    </bean>
+    <bean id="teacher2Page" class="com.buddhism.controller.teacher2Page">
+        
+    </bean>
+    <bean id="eventPage" class="com.buddhism.controller.EventsPage">
+        
+    </bean>
+    <bean id="associationPage" class="com.buddhism.controller.AssociationPage">
+        
+    </bean>
+    <bean id="newsPage" class="com.buddhism.controller.NewsPageAction">
+        
+    </bean>
+    <bean id="buddleWordsPage" class="com.buddhism.controller.BuddleWordsPage">
+        
+    </bean>
+    <bean id="templePage" class="com.buddhism.controller.Temple1Page">
+        
+    </bean>
+    <bean id="temple1Page" class="com.buddhism.controller.Temple1Page">
+        
+    </bean>
+    <bean id="temple2Page" class="com.buddhism.controller.TemplePage">
+        
+    </bean>
+    <bean id="activityPage" class="com.buddhism.controller.ActivityPage">
+        
+    </bean>
+    <bean id="messagePage" class="com.buddhism.controller.MessagePage">
+    
+    </bean>
+    <bean id="sharesPage" class="com.buddhism.controller.SharesPage">
+        
+    </bean>
+    <bean id="wisdomPage" class="com.buddhism.controller.WisdomPage">
+        
+    </bean>
+    <bean id="experiencePage" class="com.buddhism.controller.ExperiencesPage">
+        
+    </bean>
+    <bean id="videosPage" class="com.buddhism.controller.VideosPage">
+        
+    </bean>
+    <bean id="aboutUs" class="com.buddhism.controller.AboutUsPage">
+        
+    </bean>
+    <bean id="knowUs" class="com.buddhism.controller.KnowUsPage">
+        
+    </bean>
+    <bean id="contactUs" class="com.buddhism.controller.ContactUs">
+        
+    </bean>
+    <bean id="joinUs" class="com.buddhism.controller.JoinUsPage">
+        
     </bean>
 </beans>

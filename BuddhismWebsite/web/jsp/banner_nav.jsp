@@ -11,41 +11,41 @@
 	<div>
 		<ul id="nav">
 			<li><a href="mainPage.action">網站首頁</a></li>
-			<li><a href="WEB-INF/jsp/teachers.jsp" rel='dropmenu1'>指導上師</a></li>
-			<li><a href="WEB-INF/jsp/importantPosts.jsp">重要公告</a></li>
-			<li><a href="WEB-INF/jsp/news.jsp" rel='dropmenu2'>最新法訊</a></li>
-			<li><a href="WEB-INF/jsp/buddleWords.jsp">甘露教言</a></li>
-			<li><a href="WEB-INF/jsp/temples.jsp" rel='dropmenu3'>正法蘭若</a></li>
-			<li><a href="WEB-INF/jsp/activities.jsp">活動剪影</a></li> 
-			<li><a href="WEB-INF/jsp/latestMessage.jsp">最新法訊</a></li>     
-			<li><a href="WEB-INF/jsp/shares.jsp" rel='dropmenu4'>清涼共享</a></li>   
-                        <li><a href="WEB-INF/jsp/videos.jsp">影音專區</a></li>   
-			<li><a href="WEB-INF/jsp/aboutUs.jsp" rel='dropmenu5'>關於我們</a></li>         
+			<li><a href="teacherPage.action" rel='dropmenu1'>指導上師</a></li>
+			<li><a href="postPage.action">重要公告</a></li>
+			<li><a href="newsPage.action" rel='dropmenu2'>最新法訊</a></li>
+			<li><a href="buddlesWordPage.action">甘露教言</a></li>
+			<li><a href="templePage.action" rel='dropmenu3'>正法蘭若</a></li>
+			<li><a href="activityPage.action">活動剪影</a></li> 
+			<li><a href="messagePage.action">最新法訊</a></li>     
+			<li><a href="sharesPage.action" rel='dropmenu4'>清涼共享</a></li>   
+                        <li><a href="videosPage.action">影音專區</a></li>   
+			<li><a href="aboutUs.action" rel='dropmenu5'>關於我們</a></li>         
 			<li><a href="logIn.action">管理</a></li>         
 		</ul>
 		<script type="text/javascript">cssdropdown.startchrome("nav")</script> 
 	</div>
 	
 	 <ul id="dropmenu1" class="dropMenu">
-		<li><s:a href="teacher1.jsp">嘉傑 果碩仁波切</s:a></li>
-		<li><s:a href="teacher2.jsp">經論講座老師 </s:a></li>
+		<li><s:a href="teacher1Page.action">嘉傑 果碩仁波切</s:a></li>
+		<li><s:a href="teacher2Page.action">經論講座老師 </s:a></li>
 	</ul>
 	<ul id="dropmenu2" class="dropMenu">
-		<li><s:a href="associationRule.jsp">协会法讯</s:a></li>
-		<li><s:a href="eventsCalendar.jsp">行事历</s:a></li>
+		<li><s:a href="associationPage.action">协会法讯</s:a></li>
+		<li><s:a href="eventsPage.action">行事历</s:a></li>
 	</ul>
 	<ul id="dropmenu3" class="dropMenu">
-		<li><s:a href="temple1.jsp">康果洛寺</s:a></li>
-		<li><s:a href="temple2.jsp">尼泊尔圆满法洲寺</s:a></li>
+		<li><s:a href="temple1Page.action">康果洛寺</s:a></li>
+		<li><s:a href="temple2Page.action">尼泊尔圆满法洲寺</s:a></li>
 	</ul>
 	<ul id="dropmenu4" class="dropMenu">
-		<li><s:a href="wisdoms.jsp">智慧点滴</s:a></li>
-		<li><s:a href="experience.jsp">心得分享</s:a></li>
+		<li><s:a href="wisdomPage.action">智慧点滴</s:a></li>
+		<li><s:a href="experiencePage.action">心得分享</s:a></li>
 	</ul>
         <ul id="dropmenu5" class="dropMenu">
-		<li><s:a href="knowUs.jsp">认识我们</s:a></li>
-		<li><s:a href="contactUs.jsp">联系我们</s:a></li>
-                <li><s:a href="joinUs.jsp">加入我们</s:a></li>
+		<li><s:a href="knowUs.action">认识我们</s:a></li>
+		<li><s:a href="contactUs.action">联系我们</s:a></li>
+                <li><s:a href="joinUs.action">加入我们</s:a></li>
 	</ul>
 
 	

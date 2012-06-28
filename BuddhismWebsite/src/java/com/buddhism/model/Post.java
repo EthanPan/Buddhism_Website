@@ -21,6 +21,7 @@ public class Post  implements java.io.Serializable {
      private int postCategory;
      private boolean postMedia;
      private boolean postUp;
+     private String type;
      private Set<Media> medias = new HashSet<Media>(0);
 
     public Post() {
@@ -125,8 +126,17 @@ public class Post  implements java.io.Serializable {
         this.postUp = postUp;
     }
 
-
-
+    
+    public void setType()
+    {
+        type = Constants.type[postCategory];
+    }
+    
+    public String getType()
+    {
+        return type;
+    }
+    
 
 }
 
