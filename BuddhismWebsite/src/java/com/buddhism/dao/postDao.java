@@ -19,10 +19,13 @@ public interface postDao
     public Post getPost(String postTitle);
     public void deletePost(Post post);
     public List getListForPage(final int offset, final int length);
+    public List getListFromTrash(final int offset, final int length);
     public int getCount();
     public int getUpPostCount();
-    public List<Post> getPost(short postType);
+    public List<Post> getPost(short postType, final int offset, final int length);
     public List<Post> getPost(boolean postUp);
     public List<Post> getPostForAdministrator(final Administrator administrator, final int offset, final int length);
-    public void Update(String postTitle, boolean update);
+    public void Update(int id, boolean update);
+    public void delete(int id);
+    public void remove(int id);
 }

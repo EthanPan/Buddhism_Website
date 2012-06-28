@@ -138,15 +138,15 @@ public class MainPageAction implements SessionAware
     
         session.remove("pictures");
         
-        informs = service.getPost((short)Constants.informs);
-        associationMessage = service.getPost((short)Constants.associationMessage);
-        eventCalendar = service.getPost((short)Constants.eventCalendar);
-        buddleWords = service.getPost((short)Constants.buddleWords);
-        activities = service.getPost((short)Constants.activities);
-        wisdom = service.getPost((short)Constants.wisdom);
-        experienceShare = service.getPost((short)Constants.experienceShare);
-        videoes = service.getPost((short)Constants.videoes); 
-        lastestLaw = service.getPost((short)Constants.lastestLaw);
+        informs = service.getPost((short)Constants.informs, 1, 5);
+        associationMessage = service.getPost((short)Constants.associationMessage, 1, 5);
+        eventCalendar = service.getPost((short)Constants.eventCalendar, 1, 5);
+        buddleWords = service.getPost((short)Constants.buddleWords, 1, 5);
+        activities = service.getPost((short)Constants.activities, 1, 5);
+        wisdom = service.getPost((short)Constants.wisdom, 1, 5);
+        experienceShare = service.getPost((short)Constants.experienceShare, 1, 5);
+        videoes = service.getPost((short)Constants.videoes, 1, 5); 
+        lastestLaw = service.getPost((short)Constants.lastestLaw, 1, 5);
         List<Post> temp = service.getPost();
         
         for (int i = 0; i != temp.size(); i++)

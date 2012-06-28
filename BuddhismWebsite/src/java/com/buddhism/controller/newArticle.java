@@ -54,33 +54,9 @@ public class newArticle extends ActionSupport implements SessionAware{
   
   
     }  
-    
-    public int getArticleCat() {
-        return articleCat;
-    }
-
-    public void setArticleCat(int articleCat) {
-        this.articleCat = articleCat;
-    }
-    
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    
-    public String deliver(){
-   
+    @Override
+    public String execute()
+    {
         Administrator admin = (Administrator) session.get("User");
         boolean hasMedia = false;
         try 
@@ -143,6 +119,30 @@ public class newArticle extends ActionSupport implements SessionAware{
             Logger.getLogger(newArticle.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "SUCCESS";
+    }
+    
+    public int getArticleCat() {
+        return articleCat;
+    }
+
+    public void setArticleCat(int articleCat) {
+        this.articleCat = articleCat;
+    }
+    
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
     
     public String cancel(){

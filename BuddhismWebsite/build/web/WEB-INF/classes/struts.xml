@@ -20,24 +20,27 @@
         <default-interceptor-ref name="defaultStack1"></default-interceptor-ref>
         
         <action name="logIn" class="logAction">
+            <result name="SUCCESS">/WEB-INF/admin/index.jsp</result>
+            <result name="INPUT">/WEB-INF/admin/login.jsp</result>
+        </action>
+        <action name="nextPageAction" class="manage" method="nextPage">
+            <result name="SUCCESS" type="redirect">/WEB-INF/admin/articleList.jsp</result>
+        </action>
+        <action name="getByTypeAction" class="manage" method="getByType">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
-            <result name="INPUT">/WEB-INF/jsp/logIn.jsp</result>
         </action>
-        <action name="managementAction" class="manage" method="nextPage">
-            <result name="SUCCESS" type="redirect">/WEB-INF/jsp/management.jsp</result>
-        </action>
-        <action name="managementAction" class="manage" method="previousPage">
-            <result name="SUCCESS" type="redirect">/WEB-INF/jsp/management.jsp</result>
+        <action name="previousPageAction" class="manage" method="previousPage">
+            <result name="SUCCESS" type="redirect">/WEB-INF/admin/articleList.jsp</result>
         </action>
         <action name="managementAction" class="manage">
-            <result name="SUCCESS">/WEB-INF/jsp/management.jsp</result>
+            <result name="SUCCESS">/WEB-INF/admin/articleList.jsp</result>
         </action>
         <action name="newPage" class="newArticle">
-            <result name="SUCCESS">/WEB-INF/jsp/newArticle.jsp</result>
+            <result name="SUCCESS">/WEB-INF/admin/addArticle.jsp</result>
         </action>    
         <action name="articleAction" class="article">
-            <result name="SUCCESS" type="redirect">managementAction.action</result>
-            <result name="CANCEL"  type="redirect">managementAction.action</result>
+            <result name="SUCCESS">/WEB-INF/admin/index.jsp</result>
+            <result name="CANCEL">/WEB-INF/admin/index.jsp</result>
         </action> 
         <action name="register" class="register">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
@@ -115,6 +118,9 @@
         </action>    
         <action name="joinUs" class="joinUs">
             <result name="SUCCESS">/WEB-INF/jsp/joinUs.jsp</result>
-        </action>           
+        </action>          
+        <action name="removeToTrash" class="removeToTrash">
+            <result name="SUCCESS" type="redirect">managementAction.action</result>
+        </action>
     </package>
 </struts>

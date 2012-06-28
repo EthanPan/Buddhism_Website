@@ -20,7 +20,7 @@
         <property name="adLevel" type="int">
             <column name="ad_Level" not-null="true" />
         </property>
-        <set name="posts" inverse="true">
+        <set name="posts" inverse="true" lazy="false">
             <key>
                 <column name="post_Author" not-null="true" />
             </key>

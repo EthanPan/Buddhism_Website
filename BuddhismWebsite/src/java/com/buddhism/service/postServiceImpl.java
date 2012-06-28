@@ -80,13 +80,13 @@ public class postServiceImpl implements postService
     }
 
     @Override
-    public List<Post> getPost(short postType) 
+    public List<Post> getPost(short postType, final int offset, final int length) 
     {   
         if(postDao == null)
         {
             postDao = new postDaoImpl();
         }
-        return postDao.getPost(postType);
+        return postDao.getPost(postType, offset, length);
     }
 
     @Override
@@ -102,15 +102,27 @@ public class postServiceImpl implements postService
     }
 
     @Override
-    public void UpdatePost(String postTitle, boolean update) 
+    public void UpdatePost(int id, boolean update) 
     {
-            postDao.Update(postTitle, update);
+            postDao.Update(id, update);
     }
 
     @Override
     public int getUpPostNumber() 
     {
         return postDao.getUpPostCount();
+    }
+
+    @Override
+    public void deletePost(int id) 
+    {
+        postDao.delete(id);
+    }
+
+    @Override
+    public void removePost(int id) 
+    {
+        postDao.remove(id);
     }
     
 }

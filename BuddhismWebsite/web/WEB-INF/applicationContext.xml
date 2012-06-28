@@ -184,4 +184,14 @@
     <bean id="joinUs" class="com.buddhism.controller.JoinUsPage">
         
     </bean>
+    <bean id="removeToTrash" class="com.buddhism.controller.RemoveToTrash">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>        
+    </bean>
+    <bean id="getPostByType" class="com.buddhism.controller.GetPostByType">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>                
+    </bean>
 </beans>

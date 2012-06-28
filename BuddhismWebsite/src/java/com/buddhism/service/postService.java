@@ -20,8 +20,10 @@ public interface postService
             boolean postMedia, boolean postUp) throws Exception;
     public int getPostNumber();
     public int getUpPostNumber();
-    public void UpdatePost(String postTitle, boolean update);
-    public List<Post> getPost(short postType);
+    public void UpdatePost(int id, boolean update);
+    public List<Post> getPost(short postType, final int offset, final int length);
     public List<Post> getPost();
     public List<Post> getPostForAdministrator(final Administrator administrator, final int offset, final int length);
+    public void deletePost(int id);
+    public void removePost(int id);
 }

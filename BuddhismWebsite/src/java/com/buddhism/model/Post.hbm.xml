@@ -8,7 +8,7 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="administrator" class="com.buddhism.model.Administrator" fetch="select">
+        <many-to-one name="administrator" class="com.buddhism.model.Administrator" fetch="select" lazy="false">
             <column name="post_Author" not-null="true" />
         </many-to-one>
         <property name="postDate" type="timestamp">
@@ -32,7 +32,7 @@
         <property name="postUp" type="boolean">
             <column name="post_Up" not-null="true"/>
         </property>
-        <set name="medias" inverse="true">
+        <set name="medias" inverse="true" lazy="false">
             <key>
                 <column name="media_Post" not-null="true" />
             </key>

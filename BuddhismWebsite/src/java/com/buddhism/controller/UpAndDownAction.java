@@ -17,7 +17,7 @@ import org.apache.struts2.interceptor.ServletResponseAware;
  */
 public class UpAndDownAction extends ActionSupport implements ServletResponseAware{
     
-    private String title;
+    private int id;
     private boolean isUp;
 
     private postService service;
@@ -30,14 +30,6 @@ public class UpAndDownAction extends ActionSupport implements ServletResponseAwa
 
     public void setService(postService service) {
         this.service = service;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public boolean isIsUp() {
@@ -62,15 +54,15 @@ public class UpAndDownAction extends ActionSupport implements ServletResponseAwa
        int number = service.getUpPostNumber();
        if (number == Constants.maxMainPagePics && isUp == true)
        {
-           out.print("<script>alert(\"已经有5篇文章置于首页了\")</script>");
+           out.print("<script>alert(\"已经有4篇文章置于首页了\")</script>");
            out.print("<script>window.location.href=\'managementAction.action\'</script>");
            out.flush();
            out.close();
-           return null;
+           return "SUCCESS";
        }
        else
        {
-           service.UpdatePost(title, isUp);
+           service.UpdatePost(id, isUp);
        }
        
        return "SUCCESS";
@@ -79,5 +71,19 @@ public class UpAndDownAction extends ActionSupport implements ServletResponseAwa
     @Override
     public void setServletResponse(HttpServletResponse hsr) {
         response = hsr;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 }
