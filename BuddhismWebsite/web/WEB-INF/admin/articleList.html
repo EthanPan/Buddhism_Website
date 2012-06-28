@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文章列表</title>
+<link href="styles/layout.css" rel="stylesheet" type="text/css" />
+<link href="styles/wysiwyg.css" rel="stylesheet" type="text/css" />
+<!-- Theme Start -->
+<link href="themes/blue/styles.css" rel="stylesheet" type="text/css" />
+<!-- Theme End -->
+</head>
+<body id="homepage">
+	<div id="header">
+    	<a href="" title=""><img src="img/cp_logo.png" alt="Control Panel" class="logo" /></a>
+    	<div id="searcharea">
+            
+            <input type="text" class="searchbox" value="输入查询内容" onclick="if (this.value =='输入查询内容'){this.value=''}"/>
+            <input type="submit" value="查找" class="searchbtn" />
+        </div>
+    </div>
+        
+    <!-- Top Breadcrumb Start -->
+    <div id="breadcrumb">
+    	<ul>	
+        	<li><img src="img/icons/icon_breadcrumb.png" alt="Location" /></li>
+        	<li><strong>当前位置:</strong></li>
+            <li><a href="#" title="">文章管理</a></li>
+            <li>/</li>
+            <li class="current">发布文章</li>
+        </ul>
+    </div>
+    <!-- Top Breadcrumb End -->
+     
+    <!-- Right Side/Main Content Start -->
+    <div id="rightside">
+
+        <div class="contentcontainer" >
+        <div class="headings">
+            <h2>文章类别</h2>
+        </div>
+         <div class="contentbox">
+            <select>
+            	<option>文章类别</option>
+            </select>
+           </div>
+       	</div>      
+        <!-- Alternative Content Box Start -->
+         <div class="contentcontainer">
+            <div class="headings altheading">
+                <h2>文章列表</h2>
+            </div>
+            <div class="contentbox">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>作者</th>
+                            <th>标题</th>
+                            <th>时间</th>
+                            <th>操作</th>
+                            <th><input name="" type="checkbox" value="" id="checkboxall" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td>Content Here</td>
+                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
+                            <td>2012-6-20</td>
+                            <td>
+                            	<a href="#" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                            	<a href="#" title=""><img src="img/icons/icon_approve.png" alt="Approve" /></a>
+                                <a href="#" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                            
+                            <td><input type="checkbox" value="" name="checkall" /></td>
+                        </tr>
+                        <tr class="alt">
+                        	<td>Content Here</td>
+                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
+                            <td>2012-6-20</td>
+                            <td>
+                            	<a href="#" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                            	<a href="#" title=""><img src="img/icons/icon_approve.png" alt="Approve" /></a>
+                                <a href="#" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                            <td><input type="checkbox" value="" name="checkall" /></td>
+                        </tr>
+                        <tr>
+                        	<td>Content Here</td>
+                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
+                            <td>2012-6-20</td>
+                            <td>
+                            	<a href="#" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                            	<a href="#" title=""><img src="img/icons/icon_approve.png" alt="Approve" /></a>
+                                <a href="#" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                            <td><input type="checkbox" value="" name="checkall" /></td>
+                        </tr>
+                         <tr class="alt">
+                        	<td>Content Here</td>
+                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
+                            <td>2012-6-20</td>
+                            <td>
+                            	<a href="#" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                            	<a href="#" title=""><img src="img/icons/icon_approve.png" alt="Approve" /></a>
+                                <a href="#" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                            <td><input type="checkbox" value="" name="checkall" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_approve.png" alt="Approve" /> 置顶</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                    <div class="bulkactions">
+                    	<select>
+                        	<option>操作</option>
+                        </select>
+                        <input type="submit" value="应用" class="btn" />
+                    </div>
+                </div>
+                <ul class="pagination">
+                	<li class="text">前一页</li>
+                    <li class="page"><a href="#" title="">1</a></li>
+                    <li><a href="#" title="">2</a></li>
+                    <li><a href="#" title="">3</a></li>
+                    <li><a href="#" title="">4</a></li>
+                    <li class="text"><a href="#" title="">后一页</a></li>
+                </ul>
+                <div style="clear: both;"></div>
+            </div>
+            
+        </div>
+        <!-- Alternative Content Box End -->
+        
+        <div style="clear:both;"></div>
+
+        
+        <div id="footer">
+        	&copy; Copyright 2012 
+        </div> 
+          
+    </div>
+    <!-- Right Side/Main Content End -->
+    
+        <!-- Left Dark Bar Start -->
+    <div id="leftside">
+    	<div class="user">
+        	<img src="img/avatar.png" width="44" height="44" class="hoverimg" alt="Avatar" />
+            <p>帐户信息</p>
+            <p class="username"></p>
+            <p class="userbtn"><a href="#" title="">资料</a></p>
+            <p class="userbtn"><a href="#" title="">登出</a></p>
+        </div>
+
+        <ul id="nav">
+        	<li>
+                <ul class="navigation">
+                    <li><a>网站状态</a></li>
+                    <li ><a href="#" title="">发布文章</a></li>
+                    <li><a href="#" title="">上传照片</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="expanded heading">文章管理</a>
+                 <ul class="navigation">
+                    <li><a href="#" title="">发布文章</a></li>
+                    <li  class="heading selected">文章列表</li>
+                </ul>
+            </li>
+            <li><a class="expanded heading">相册管理</a>
+                <ul class="navigation">
+                    <li><a href="#" title="">上传照片</a></li>
+                    <li><a href="#" title="">相册管理</a></li>
+                </ul>
+            </li>
+            <li><a class="expanded heading">帐户管理</a>
+                <ul class="navigation">
+                    <li><a href="#" title="">用户资料</a></li>
+                    <li><a href="#" title="">添加帐户</a></li>
+                </ul>
+            </li>            
+        </ul>
+    </div>
+    <!-- Left Dark Bar End --> 
+   
+    <!-- Notifications Box/Pop-Up End --> 
+    
+    <script type="text/javascript" src="http://dwpe.googlecode.com/svn/trunk/_shared/EnhanceJS/enhance.js"></script>	
+    <script type='text/javascript' src='http://dwpe.googlecode.com/svn/trunk/charting/js/excanvas.js'></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js'></script>
+	<script type='text/javascript' src='scripts/jquery.wysiwyg.js'></script>
+    <script type='text/javascript' src='scripts/visualize.jQuery.js'></script>
+    <script type="text/javascript" src='scripts/functions.js'></script>
+    
+    <!--[if IE 6]>
+    <script type='text/javascript' src='scripts/png_fix.js'></script>
+    <script type='text/javascript'>
+      DD_belatedPNG.fix('img, .notifycount, .selected');
+    </script>
+    <![endif]--> 
+</body>
+</html>
