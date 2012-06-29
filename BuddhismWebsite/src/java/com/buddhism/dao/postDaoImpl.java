@@ -5,9 +5,13 @@
 package com.buddhism.dao;
 
 import com.buddhism.model.Administrator;
+import com.buddhism.model.Media;
 import com.buddhism.model.Post;
+import java.io.File;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -96,12 +100,25 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
                 return getHibernateTemplate().executeFind(new HibernateCallback(){
 
             @Override
-            public Object doInHibernate(Session sn) throws HibernateException, SQLException {
-               Query query = sn.createQuery("from Post as p where p.administrator = :admin and p.postCategory > 0 order by p.postDate desc");
-               query.setParameter("admin", administrator);
-               query.setFirstResult(offset);
-               query.setMaxResults(length);
-               return (List<Post>)query.list();
+            public Object doInHibernate(Session sn) throws HibernateException, SQLException 
+            {
+               if(administrator.getAdLevel() == 0)
+               {
+                   Query query = sn.createQuery("from Post as p where p.postCategory > 0 order by p.postDate desc");
+                   query.setParameter("admin", administrator);
+                   query.setFirstResult(offset);
+                   query.setMaxResults(length);
+                   return (List<Post>)query.list();
+               }else if(administrator.getAdLevel() == 1)
+               {
+                   Query query2 = sn.createQuery("from Post as p where p.administrator = :admin and p.postCategory > 0 order by p.postDate desc");
+                   query2.setParameter("admin", administrator);
+                   query2.setFirstResult(offset);
+                   query2.setMaxResults(length);
+                   return (List<Post>)query2.list();
+               }
+               
+               return null;
             }
         });
     }
@@ -139,9 +156,27 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
         
         Session s = this.getSession();
         s.beginTransaction();
-        Query query = s.createQuery("delete from Post p where p.id ="+ id);
         
-        query.executeUpdate();
+        Set<Media> mediaList = post.getMedias();
+        Iterator it = mediaList.iterator();
+        
+        while(it.hasNext())
+        {
+            Media media = (Media)it.next();
+            Query query = s.createQuery("delete from Media m where m.post = :post");
+            query.setParameter("post", post);
+            query.executeUpdate();
+            
+            //delete the dish file
+            File file = new File(media.getMediaUrl());
+            if(file.isFile() && file.exists())
+            {
+                file.delete();
+            }
+        }
+        Query query2 = s.createQuery("delete from Post p where p.id ="+ id);
+        
+        query2.executeUpdate();
         s.getTransaction().commit();
     }
 
@@ -160,15 +195,57 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
     }
 
     @Override
-    public List getListFromTrash(final int offset, final int length) {
+    public List getListFromTrash(final Administrator administrator, final int offset, final int length) 
+    {
        // throw new UnsupportedOperationException("Not supported yet.");
+        return getHibernateTemplate().executeFind(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session sn) throws HibernateException, SQLException 
+            {
+                if(administrator.getAdLevel() == 0)
+                {
+                    Query query = sn.createQuery("from Post as p where p.postCategory < 0 order by p.postDate desc");
+                    query.setFirstResult(offset);
+                    query.setMaxResults(length);
+                    return query.list();
+                }else if(administrator.getAdLevel() == 1)
+                {
+                    Query query2 = sn.createQuery("from Post as p where p.administrator = :admin and p.postCategory < 0 order by p.postDate desc");
+                    query2.setParameter("admin", administrator);
+                    query2.setFirstResult(offset);
+                    query2.setMaxResults(length);
+                    return query2.list();
+                }
+                
+                return null;
+            }
+        });
+    }
+
+    @Override
+    public int getCount(int type) 
+    {
+        if(type == -1)
+        {
+            return this.getListFromTrash().size();
+        }else if(type ==0)
+        {
+            return this.getCount();
+        }else
+        {
+            return ((List<Post>)getHibernateTemplate().find("from Post as p where p.postCategory = ?", type)).size();
+        }
+    }
+
+    @Override
+    public List getListFromTrash() 
+    {
         return getHibernateTemplate().executeFind(new HibernateCallback(){
 
             @Override
             public Object doInHibernate(Session sn) throws HibernateException, SQLException {
                Query query = sn.createQuery("from Post as p where p.postCategory < 0");
-               query.setFirstResult(offset);
-               query.setMaxResults(length);
                return query.list();
             }
         });

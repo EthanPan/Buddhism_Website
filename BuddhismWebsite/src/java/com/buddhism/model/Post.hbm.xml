@@ -32,7 +32,7 @@
         <property name="postUp" type="boolean">
             <column name="post_Up" not-null="true"/>
         </property>
-        <set name="medias" inverse="true" lazy="false">
+        <set name="medias" inverse="true" lazy="false" cascade="all">
             <key>
                 <column name="media_Post" not-null="true" />
             </key>

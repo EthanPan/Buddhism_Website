@@ -26,7 +26,8 @@ public class administratorDaoImpl extends HibernateDaoSupport implements adminis
     }
 
     @Override
-    public Administrator getAdministrator(int id) {
+    public Administrator getAdministrator(int id) 
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

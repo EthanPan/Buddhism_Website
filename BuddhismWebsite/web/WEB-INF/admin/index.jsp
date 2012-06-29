@@ -124,7 +124,7 @@
             <p>帐户信息</p>
             <p class="username"></p>
             <p class="userbtn"><a href="#" title="">资料</a></p>
-            <p class="userbtn"><a href="#" title="">登出</a></p>
+            <p class="userbtn"><a href="logOut" title="">登出</a></p>
         </div>
 
         <ul id="nav">
@@ -140,6 +140,7 @@
                  <ul class="navigation">
                     <li><a href="newPage" title="">发布文章</a></li>
                     <li><a href="managementAction" title="">文章列表</a></li>
+                    <li><a href="articleTrash" title="">文章回收站</a></li>
                 </ul>
             </li>
             <li><a class="expanded heading">相册管理</a>
@@ -151,7 +152,10 @@
             <li><a class="expanded heading">帐户管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">用户资料</a></li>
-                    <li><a href="#" title="">添加帐户</a></li>
+                    <s:if test="#session.User.adLevel == 0">
+                        <li><a href="#" title="">添加帐户</a></li>
+                    </s:if>
+                    
                 </ul>
             </li>              
         </ul>

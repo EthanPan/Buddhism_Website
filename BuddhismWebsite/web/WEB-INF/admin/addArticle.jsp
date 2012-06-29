@@ -18,6 +18,48 @@
 <!-- Theme Start -->
 <link href="<%=path%>/admin/themes/blue/styles.css" rel="stylesheet" type="text/css" />
 <!-- Theme End -->
+
+ <link href="<%=path%>/css/uploadify.css" rel="stylesheet" type="text/css" />
+
+ <script type="text/javascript" src="<%=path%>/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<%=path%>/js/jquery.uploadify-3.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#fileupload").uploadify({
+                                    /*注意前    面需要书写path的代码*/ 
+
+        'swf'            : '<%=path%>/images/uploadify.swf', 
+        'uploader'       : '<%=path%>/upload', 
+        'cancelImg'      : '<%=path%>/images/cancel.png', 
+        //'queueID'        : 'fileQueue',  //和存放队列的DIV的id一致 
+        'fileObjName'    : 'fileupload', //和以下input的name属性一致 
+        'auto'           : true, //是否自动开始 
+        'multi'          : false, //是否支持多文件上传 
+        'buttonText'     : '上传照片', //按钮上的文字 
+
+        'fileSizeLimit'  : '5MB', //设置单个文件大小限制5m 
+        'queueSizeLimit' : 2, //队列中同时存在的文件个数限制 
+        'fileTypeDesc'       : '支持格式:jpg/gif/jpeg/png/bmp.', //如果配置了以下的'fileExt'属性，那么这个属性是必须的 
+        'fileTypeExt'        : '*.jpg;*.gif;*.jpeg;*.png;*.bmp',//允许的格式   
+        'onUploadSuccess'    : function(file, data, response) { 
+            filepath =eval("(" + data + ")");                  
+            $("#target").attr("src", filepath);
+        }, 
+        'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+            // $.facebox('文件' + file.name + '不能上传' + errorString);
+        },
+        'onCancel' : function(file) {
+            // $.facebox('文件 ' + file.name + '取消了上传');
+        } 
+    }); 
+
+    })
+</script>
+
+
+
+
+
 </head>
 <body id="homepage">
 	<div id="header">
@@ -47,14 +89,15 @@
         
         <div class="contentbox">
             <form action="articleAction.action" method="post" enctype="multipart/form-data">
-        		<p>
-        			
+                <p>		
                     <label for="textfield"><strong>文章标题</strong></label>
                     <input type="text" name="title" id="textfield" class="inputbox" style="width: 580px;"/> 
                     <span class="smltxt">文章类别</span>
                     <s:select list="cataList" name="articleCat" listKey="catId" listValue="catName" emptyOption="false"/> 
                 </p>
                 <textarea class="text-input textarea" id="wysiwyg" name="content" ></textarea>
+                <input type="file" name="fileupload" id="fileupload" />
+                 <img id="target" src=""/>
                 <input type="submit" value="发布" class="btn" /> 
             </form>
          </div>        
@@ -75,13 +118,13 @@
             <p>帐户信息</p>
             <p class="username"></p>
             <p class="userbtn"><a href="#" title="">资料</a></p>
-            <p class="userbtn"><a href="#" title="">登出</a></p>
+            <p class="userbtn"><a href="logOut" title="">登出</a></p>
         </div>
 
         <ul id="nav">
         	<li>
                 <ul class="navigation">
-                    <li><a>网站状态</a></li>
+                    <li><a href="adminIndex">网站状态</a></li>
                     <li  class="heading selected">发布文章</li>
                     <li><a href="#" title="">上传照片</a></li>
                 </ul>
@@ -91,6 +134,7 @@
                  <ul class="navigation">
                     <li><a href="#" title="">发布文章</a></li>
                     <li><a href="managementAction" title="">文章列表</a></li>
+                    <li><a href="articleTrash" title="">文章回收站</a></li>
                 </ul>
             </li>
             <li><a class="expanded heading">相册管理</a>
@@ -115,7 +159,6 @@
     
     <script type="text/javascript" src="http://dwpe.googlecode.com/svn/trunk/_shared/EnhanceJS/enhance.js"></script>	
     <script type='text/javascript' src='http://dwpe.googlecode.com/svn/trunk/charting/js/excanvas.js'></script>
-	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script>
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js'></script>
 	<script type='text/javascript' src='<%=path%>/admin/scripts/jquery.wysiwyg.js'></script>
     <script type='text/javascript' src='<%=path%>/admin/scripts/visualize.jQuery.js'></script>

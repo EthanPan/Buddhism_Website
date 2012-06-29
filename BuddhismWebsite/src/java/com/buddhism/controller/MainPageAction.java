@@ -146,7 +146,6 @@ public class MainPageAction implements SessionAware
         wisdom = service.getPost((short)Constants.wisdom, 1, 5);
         experienceShare = service.getPost((short)Constants.experienceShare, 1, 5);
         videoes = service.getPost((short)Constants.videoes, 1, 5); 
-        lastestLaw = service.getPost((short)Constants.lastestLaw, 1, 5);
         List<Post> temp = service.getPost();
         
         for (int i = 0; i != temp.size(); i++)

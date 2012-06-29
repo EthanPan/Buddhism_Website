@@ -194,4 +194,20 @@
             <ref bean="postService"/>
         </property>                
     </bean>
+    <bean id="adminIndex" class="com.buddhism.controller.AdminIndex">
+        
+    </bean>
+    <bean id="articleTrash" class="com.buddhism.controller.ArticleTrash">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>                
+    </bean>
+    <bean id="deleteArticle" class="com.buddhism.controller.DeleteArticle">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>   
+    </bean>
+    <bean id="upload" class="com.buddhism.controller.UploadUtilAction">
+    
+    </bean>
 </beans>

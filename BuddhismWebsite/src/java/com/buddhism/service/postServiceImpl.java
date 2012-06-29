@@ -74,9 +74,9 @@ public class postServiceImpl implements postService
     }
 
     @Override
-    public int getPostNumber() 
+    public int getPostNumber(int type) 
     {
-        return postDao.getCount();
+        return postDao.getCount(type);
     }
 
     @Override
@@ -124,5 +124,11 @@ public class postServiceImpl implements postService
     {
         postDao.remove(id);
     }
+    @Override
+    public List<Post> getPostFromTrash(final Administrator administrator, final int offset, final int length) 
+    {
+       return postDao.getListFromTrash(administrator, offset, length);
+    }
+
     
 }

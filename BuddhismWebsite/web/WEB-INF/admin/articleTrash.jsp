@@ -13,7 +13,7 @@
     String path = request.getContextPath(); 
 %>          
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>文章列表</title>
+<title>文章回收站</title>
 <link href="<%=path%>/admin/styles/layout.css" rel="stylesheet" type="text/css" />
 <link href="<%=path%>/admin/styles/wysiwyg.css" rel="stylesheet" type="text/css" />
 <!-- Theme Start -->
@@ -37,7 +37,7 @@
         	<li><strong>当前位置:</strong></li>
             <li><a href="#" title="">文章管理</a></li>
             <li>/</li>
-            <li class="current">发布文章</li>
+            <li class="current">文章回收站</li>
             
         </ul>
     </div>
@@ -47,15 +47,6 @@
     <div id="rightside">
 
         <div class="contentcontainer" >
-        <div class="headings">
-            <h2>文章类别</h2>
-        </div>
-         <div class="contentbox">
-             <form action="getByTypeAction">
-                <s:select list="cataList" name="type" listKey="catId" listValue="catName" emptyOption="false"/> <input type="submit" value="确定" class="btn" /> 
-             </form>
-                 
-           </div>
        	</div>      
         <!-- Alternative Content Box Start -->
          <div class="contentcontainer">
@@ -80,20 +71,9 @@
                             <td><s:property value="administrator.adName"/></td>
                             <td><s:property value="postTitle"/></td>
                             <td><s:date name="postDate" format="yyyy-MM-dd" /></td>
-                            <!--<td><s:property value="type"/></td> -->
                             
                             <td>
-                            	<a href="#" title=""><img src="<%=path%>/admin/img/icons/icon_edit.png" alt="Edit" /></a>
-                                <s:if test="postMedia == true">
-                                    <s:if test="postUp == true">
-                                        <a href="UpAction.action?id=${id}&&isUp=false" title=""><img src="<%=path%>/admin/img/icons/icon_unapprove.png" alt="Unapprove" /></a>
-                                    </s:if>
-                                    <s:else>
-                                        <a href="UpAction.action?id=${id}&&isUp=true" title=""><img src="<%=path%>/admin/img/icons/icon_approve.png" alt="Approve" /></a>
-                                    </s:else>
-                                </s:if>
-                            	
-                                <a href="removeToTrash.action?id=${id}" title=""><img src="<%=path%>/admin/img/icons/icon_delete.png" alt="Delete" /></a>
+                                <a href="deleteArticle.action?id=${id}" title=""><img src="<%=path%>/admin/img/icons/icon_delete.png" alt="Delete" /></a>
                             </td>
                             <td><input type="checkbox" value="" name="checkall" /></td>
                         </tr>
@@ -102,8 +82,6 @@
                 </table>
                 <div class="extrabottom">
                 	<ul>
-                    	<li><img src="<%=path%>/admin/img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
-                        <li><img src="<%=path%>/admin/img/icons/icon_approve.png" alt="Approve" /> 置顶</li>
                         <li><img src="<%=path%>/admin/img/icons/icon_delete.png" alt="Delete" /> 删除</li>
                     </ul>
                     <div class="bulkactions">
@@ -177,8 +155,8 @@
                 <a class="expanded heading">文章管理</a>
                  <ul class="navigation">
                     <li><a href="newPage" title="">发布文章</a></li>
-                    <li  class="heading selected">文章列表</li>
-                    <li><a href="articleTrash" title="">文章回收站</a></li>
+                    <li><a href="managementAction" title="">文章列表</a></li>
+                    <li  class="heading selected">文章回收站</li>
                 </ul>
             </li>
             <li><a class="expanded heading">相册管理</a>

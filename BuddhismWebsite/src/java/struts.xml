@@ -54,7 +54,7 @@
             <result name="SUCCESS">/WEB-INF/jsp/mainPage.jsp</result>
         </action>
         <action name="logOut" class="logOut">
-            <result name="SUCCESS">/WEB-INF/jsp/logIn.jsp</result>
+            <result name="SUCCESS">/WEB-INF/admin/login.jsp</result>
         </action>
         <action name="UpAction" class="UpAction">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
@@ -122,5 +122,22 @@
         <action name="removeToTrash" class="removeToTrash">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
         </action>
+        <action name="adminIndex" class="adminIndex">
+            <result name="SUCCESS">/WEB-INF/admin/index.jsp</result>
+        </action>
+        <action name="articleTrash" class="articleTrash">
+            <result name="SUCCESS">/WEB-INF/admin/articleTrash.jsp</result>
+        </action>
+        <action name="deleteArticle" class="deleteArticle">
+            <result name="SUCCESS" type="redirect">articleTrash.action</result>
+        </action>
+
+            
+        
     </package>
+    <package  name="json" extends="json-default" namespace="/">
+       <action name="upload" class="upload">
+            <result name="SUCCESS" type="json">imgfilePath</result>
+        </action>
+     </package>
 </struts>

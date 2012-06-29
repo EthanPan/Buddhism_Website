@@ -35,7 +35,6 @@ public class newPageAction {
         cataList.add(new Category(Constants.buddleWords, "甘露教言"));
         cataList.add(new Category(Constants.eventCalendar, "行事历"));
         cataList.add(new Category(Constants.experienceShare, "经验分享"));
-        cataList.add(new Category(Constants.lastestLaw, "最新法讯"));
         cataList.add(new Category(Constants.videoes, "影音专区"));
         cataList.add(new Category(Constants.wisdom, "智慧点滴"));
         
