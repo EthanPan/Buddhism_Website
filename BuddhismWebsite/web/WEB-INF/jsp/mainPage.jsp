@@ -15,8 +15,35 @@
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type='text/javascript' src='js/picture_show.js'></script>	
     <title>果硕普利协会</title>
+    
+    <script type="text/javascript">
+        function loadXMLDoc()
+        {
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("mainContent").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("POST","mainPageArticle.action",true);
+        xmlhttp.send();
+        }
+</script>
 </head>
 <body >
+<script type="text/javascript">
+    loadXMLDoc();
+</script>    
 <div class="wrapper">
         <%@ include file="/jsp/banner_nav.jsp" %>
         <div class="content">
@@ -37,15 +64,6 @@
 			<div id="pictureswall">	
 			    
 			   <div id="pictures">
-                               <%
-                                    List<PicturePost> pictures = (List<PicturePost>)session.getAttribute("pictures");
-                                    for (int i = 0; i != pictures.size(); i++)
-                                    {
-                               %>
-                               <a href="#" target="_blank"><img src="<%= pictures.get(i).getUrl() %>" alt="<%= pictures.get(i).getTitle() %>" title="<%= pictures.get(i).getTitle() %>" /></a>
-                               <%
-                                    }
-                               %>
 			   </div>
 			</div>
 			</div>	  	
@@ -54,56 +72,51 @@
                                     <div class="left">
                                         <div id="left_title">甘露教言</div>
                                         <s:iterator value="buddleWords" id="buddleWord">
-                                            <p><s:property value="#buddleWord.postTitle"/></p>
+                                            <p><a href="articlePage?id=${id}" style=" color: black"><s:property value="#buddleWord.postTitle"/></a></p>
                                         </s:iterator>
                                     </div>
                                     <div class="right">
                                         <div id="left_title">正法蘭若</div>
-
+                                        <s:iterator value="temples" id="temples">
+                                            <p><a href="articlePage?id=${id}" style="color:black"><s:property value="postTitle"/></a></p>
+                                        </s:iterator>
                                         </div>
                                     </div>
 	  			<div class="last">
 	  			<div id="left_title">清涼共享</div>
-                                    <s:iterator value="experienceShare" id="share">
-                                        <p><s:property value="#share.postTitle"/></p>
+                                    <s:iterator value="shares" id="shares">
+                                        <p><a href="articlePage?id=${id}" style="color:black"><s:property value="postTitle"/></a></p>
                                     </s:iterator>
 	  			</div>
 	  		</div>
 		</div>
 		<div class="secondly">
 			<div class="teacherbox">
-				<div id="right_title">指導上師</div>
-			<h3>right</h3>
-			<p>sdfasdfasdfasdfsadfasdfasdf</p>
-			</div>
+                            <div id="right_title">指導上師</div>
+
+                            </div>
 			<div class="notificationbox">
 			<div id="right_title">重要公告</div>
-                                <s:iterator value="informs" id="inform">
-                                    <p><s:property value="#inform.postTitle"/></p>
-                                </s:iterator>                        
+                                <s:iterator value="informs" id="informs">
+                                    <p><a href="articlePage?id=${id}" style="color:black"><s:property value="postTitle"/></a></p>
+                                </s:iterator>                     
 			</div>
 			<div class="newsbox">
                         <div id="right_title">最新法訊</div>
-                                <s:iterator value="lastestLaw" id="law">
-                                    <p><s:property value="#law.postTitle"/></p>
-                                </s:iterator>                                
+                            <s:iterator value="lastestMessage" id="lastestMessage">
+                                <p><a href="articlePage?id=${id}" style="color:black"><s:property value="postTitle"/></a></p>
+                            </s:iterator>                            
 			</div>
 			<div class="supportbox">
 			<div id="right_title">贊助護持</div>
 			</div>
 			
 		</div>
-<!--		文章列表-->
-		<div class="article">
-			<div class="title"></div>
-		</div>
-		<div class="article">
-			<div class="title"></div>
-		</div>
-		<div class="article">
-			<div class="title"></div>
-		</div>
-	        <div id="viewmore">瀏覽更多資訊</div>
+                <!--文章列表-->
+                <div id="mainContent">
+                </div>
+                <a href="#" onclick="loadXMLDoc()" ><div id="viewmore">瀏覽更多資訊</div></a>
+
 
 </div>
 

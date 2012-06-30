@@ -248,4 +248,9 @@
             <ref bean="postService"/>
         </property>         
     </bean>
+    <bean id="mainPageArticle" class="com.buddhism.controller.MainPageArticle">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>           
+    </bean>
 </beans>

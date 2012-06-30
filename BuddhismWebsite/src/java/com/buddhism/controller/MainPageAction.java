@@ -5,7 +5,6 @@
 package com.buddhism.controller;
 
 import com.buddhism.model.Constants;
-import com.buddhism.model.PicturePost;
 import com.buddhism.model.Post;
 import com.buddhism.service.postService;
 import java.util.ArrayList;
@@ -19,17 +18,12 @@ import org.apache.struts2.interceptor.SessionAware;
 public class MainPageAction implements SessionAware
 {
     private List<Post> informs = new ArrayList<Post>();
-    private List<Post> associationMessage = new ArrayList<Post>();
-    private List<Post> eventCalendar = new ArrayList<Post>();
+    private List<Post> lastestMessage = new ArrayList<Post>();
     private List<Post> buddleWords = new ArrayList<Post>();
-    private List<Post> activities = new ArrayList<Post>();
-    private List<Post> wisdom = new ArrayList<Post>();
-    private List<Post> experienceShare = new ArrayList<Post>();
-    private List<Post> videoes = new ArrayList<Post>();
-    private List<PicturePost> pictures = new ArrayList<PicturePost>();
-    
-    private List<Post> articles = new ArrayList<Post>();
-    
+    private List<Post> temples = new ArrayList<Post>();
+    private List<Post> shares = new ArrayList<Post>();
+    private List<Post> posts = new ArrayList<Post>();
+
     private int count;
     
     private postService service;
@@ -45,54 +39,12 @@ public class MainPageAction implements SessionAware
   
     }    
     
-    public List<PicturePost> getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(List<PicturePost> pictures) {
-        this.pictures = pictures;
-    }
-
-    
-    
-    public List<Post> getActivities() {
-        return activities;
-    }
-
-    public void setActivities(List<Post> activities) {
-        this.activities = activities;
-    }
-
-    public List<Post> getAssociationMessage() {
-        return associationMessage;
-    }
-
-    public void setAssociationMessage(List<Post> associationMessage) {
-        this.associationMessage = associationMessage;
-    }
-
     public List<Post> getBuddleWords() {
         return buddleWords;
     }
 
     public void setBuddleWords(List<Post> buddleWords) {
         this.buddleWords = buddleWords;
-    }
-
-    public List<Post> getEventCalendar() {
-        return eventCalendar;
-    }
-
-    public void setEventCalendar(List<Post> eventCalendar) {
-        this.eventCalendar = eventCalendar;
-    }
-
-    public List<Post> getExperienceShare() {
-        return experienceShare;
-    }
-
-    public void setExperienceShare(List<Post> experienceShare) {
-        this.experienceShare = experienceShare;
     }
 
     public List<Post> getInforms() {
@@ -111,65 +63,19 @@ public class MainPageAction implements SessionAware
         this.service = service;
     }
 
-    public List<Post> getVideoes() {
-        return videoes;
-    }
-
-    public void setVideoes(List<Post> videoes) {
-        this.videoes = videoes;
-    }
-
-    public List<Post> getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(List<Post> wisdom) {
-        this.wisdom = wisdom;
-    }
-    
-    
-    
     public String execute(){
     
-        session.remove("pictures");
+        getSession().remove("pictures");
         
         informs = service.getPost((short)Constants.informs, 1, 5);
-        associationMessage = service.getPost((short)Constants.associationMessage, 1, 5);
-        eventCalendar = service.getPost((short)Constants.eventCalendar, 1, 5);
         buddleWords = service.getPost((short)Constants.buddleWords, 1, 5);
-        activities = service.getPost((short)Constants.activities, 1, 5);
-        wisdom = service.getPost((short)Constants.wisdom, 1, 5);
-        experienceShare = service.getPost((short)Constants.experienceShare, 1, 5);
-        videoes = service.getPost((short)Constants.videoes, 1, 5); 
-        List<Post> temp = service.getPost();
-        
-        for (int i = 0; i != temp.size(); i++)
-        {
-            PicturePost picturePost = new PicturePost(temp.get(i));
-            pictures.add(picturePost);
-        }
-        
-        session.put("pictures", pictures);
+        lastestMessage = service.getPost((short)Constants.lastestNews, 1, 5);
+        temples = service.getPost((short)Constants.temples, 1, 5);
+        shares = service.getPost((short)Constants.shares, 1, 5);
         
         
-        
-        
-        
+ 
         return "SUCCESS";
-    }
-
-    /**
-     * @return the articles
-     */
-    public List<Post> getArticles() {
-        return articles;
-    }
-
-    /**
-     * @param articles the articles to set
-     */
-    public void setArticles(List<Post> articles) {
-        this.articles = articles;
     }
 
     /**
@@ -184,6 +90,69 @@ public class MainPageAction implements SessionAware
      */
     public void setCount(int count) {
         this.count = count;
+    }
+
+    /**
+     * @return the lastestMessage
+     */
+    public List<Post> getLastestMessage() {
+        return lastestMessage;
+    }
+
+    /**
+     * @param lastestMessage the lastestMessage to set
+     */
+    public void setLastestMessage(List<Post> lastestMessage) {
+        this.lastestMessage = lastestMessage;
+    }
+
+    /**
+     * @return the temples
+     */
+    public List<Post> getTemples() {
+        return temples;
+    }
+
+    /**
+     * @param temples the temples to set
+     */
+    public void setTemples(List<Post> temples) {
+        this.temples = temples;
+    }
+
+    /**
+     * @return the shares
+     */
+    public List<Post> getShares() {
+        return shares;
+    }
+
+    /**
+     * @param shares the shares to set
+     */
+    public void setShares(List<Post> shares) {
+        this.shares = shares;
+    }
+
+    /**
+     * @return the posts
+     */
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    /**
+     * @param posts the posts to set
+     */
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    /**
+     * @return the session
+     */
+    public Map getSession() {
+        return session;
     }
     
     

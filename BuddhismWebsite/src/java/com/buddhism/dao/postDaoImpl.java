@@ -96,6 +96,8 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
                     hqlString += " where p.postCategory = 9 or p.postCategory = 10 order by p.postDate desc";
                 else if(postType == 16)
                    hqlString += " where p.postCategory = 11 or p.postCategory = 12 order by p.postDate desc";
+                else if (postType == 0)
+                   hqlString += " where p.postCategory > 0 order by p.postDate desc";
                 else
                    hqlString += " where p.postCategory = " + postType + " order by p.postDate desc";
                 

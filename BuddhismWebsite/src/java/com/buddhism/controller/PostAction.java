@@ -5,7 +5,6 @@
 package com.buddhism.controller;
 
 import com.buddhism.model.Administrator;
-import com.buddhism.model.Category;
 import com.buddhism.model.Post;
 import com.buddhism.service.postService;
 import com.opensymphony.xwork2.ActionContext;
@@ -29,10 +28,10 @@ public class PostAction extends ActionSupport implements SessionAware{
     protected List<Post> posts = new ArrayList<Post>();
     
     protected int currentIndex = 0;
-    protected final int max = 20;
+    protected int max = 20;
     protected int maxIndex = 0;
     protected int maxPage = 0;
-
+    
     protected Map session;
     
     protected postService service;
@@ -80,7 +79,7 @@ public class PostAction extends ActionSupport implements SessionAware{
         
        
         maxIndex = service.getPostNumber(type);
-        maxPage = maxIndex / 20;
+        maxPage = maxIndex / max;
             
         
         getPost();

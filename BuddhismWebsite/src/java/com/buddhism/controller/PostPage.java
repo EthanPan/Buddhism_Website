@@ -14,5 +14,19 @@ public class PostPage extends SinglePostAction{
     
     public PostPage() {
         type = Constants.informs;
+        max = 3;
+        currentIndex = -1;
+    }
+    
+    @Override
+    public String execute(){
+        
+       
+        
+        maxIndex = service.getPostNumber(type);
+        maxPage = maxIndex / max;
+            
+        
+        return nextPage();
     }
 }
