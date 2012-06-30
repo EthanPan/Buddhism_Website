@@ -29,6 +29,8 @@ public class newPageAction {
     
     public String execute(){
         
+        cataList.clear();
+        
         cataList.add(new Category(Constants.informs, "重要公告"));
         cataList.add(new Category(Constants.activities, "活动剪影"));
         cataList.add(new Category(Constants.associationMessage, "协会法讯"));

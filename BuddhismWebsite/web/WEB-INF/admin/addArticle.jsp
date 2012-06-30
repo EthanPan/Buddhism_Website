@@ -88,7 +88,7 @@
 
         
         <div class="contentbox">
-            <form action="articleAction.action" method="post" enctype="multipart/form-data">
+            <form action="articleAction.action" method="post">
                 <p>		
                     <label for="textfield"><strong>文章标题</strong></label>
                     <input type="text" name="title" id="textfield" class="inputbox" style="width: 580px;"/> 

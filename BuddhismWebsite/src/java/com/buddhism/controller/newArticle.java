@@ -11,13 +11,9 @@ import com.buddhism.service.mediaServiceImpl;
 import com.buddhism.service.postServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
@@ -61,60 +57,10 @@ public class newArticle extends ActionSupport implements SessionAware{
         boolean hasMedia = false;
         try 
         {
-            String path = ServletActionContext.getServletContext().getRealPath("/");
-            
-            int times = 0;
-            int index;
-            
-            for (index = path.length() - 1; index != -1; index--)
-            {
-                if (path.charAt(index) == '/' || path.charAt(index) == '\\')
-                    times++;
-                if (times == 3)
-                    break;
-            }
-            
-            path = path.substring(0, index);
-            path += "\\web\\pics\\";
-            
-            File folder = new File(path);
-            if (!folder.exists())
-                folder.mkdir();;
-        
-            int length=2097152;
-            if (file != null)
-            {
-                hasMedia = true;
-                
-                InputStream is = new FileInputStream(file);
-                index = mediaService.getMediaNumber(true);
+           
+            Post post = postService.setPost(admin, title, content, articleCat, hasMedia, false);
+            //TODO : Add the pic part
 
-                path += index + ".jpg";
-                File newPic = new  File(path);
-
-                if (newPic.createNewFile())                 
-                {
-                    FileOutputStream out = new FileOutputStream(newPic);
-
-                    byte[] buffer=new byte[length];
-
-                    while(true)
-                    {
-                        int ins=is.read(buffer);
-                        if(ins==-1)
-                        {
-                            is.close();
-                            out.flush();
-                            out.close();
-                            break;
-                        }
-                        else
-                            out.write(buffer,0,ins);
-                    }
-                }
-            }
-                Post post = postService.setPost(admin, title, content, articleCat, hasMedia, false);
-                mediaService.setMedia(post, path, true);
         } catch (Exception ex) {
             Logger.getLogger(newArticle.class.getName()).log(Level.SEVERE, null, ex);
         }
