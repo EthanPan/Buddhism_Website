@@ -4,18 +4,27 @@
  */
 package com.buddhism.controller;
 
+import com.buddhism.model.Post;
+import com.buddhism.service.postService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class MessagePage extends ActionSupport {
+public class PhotoPage extends ActionSupport {
     
-    public MessagePage() {
+    public PhotoPage() {
     }
     
     public String execute() throws Exception {
+        
+        
+        
         return "SUCCESS";
     }
+
+   
 }

@@ -1,5 +1,5 @@
 package com.buddhism.model;
-// Generated 2012-5-11 11:26:00 by Hibernate Tools 3.2.1.GA
+// Generated 2012-7-1 3:41:49 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -11,10 +11,10 @@ import java.util.Set;
 public class Administrator  implements java.io.Serializable {
 
 
-     private Integer id;
+     private Short id;
      private String adName;
      private String adPassword;
-     private int adRandom;
+     private int adRanNum;
      private int adLevel;
      private Set<Post> posts = new HashSet<Post>(0);
 
@@ -22,25 +22,25 @@ public class Administrator  implements java.io.Serializable {
     }
 
 	
-    public Administrator(String adName, String adPassword, int adRandom, int adLevel) {
+    public Administrator(String adName, String adPassword, int adRanNum, int adLevel) {
         this.adName = adName;
         this.adPassword = adPassword;
-        this.adRandom = adRandom;
+        this.adRanNum = adRanNum;
         this.adLevel = adLevel;
     }
-    public Administrator(String adName, String adPassword, int adRandom, int adLevel, Set<Post> posts) {
+    public Administrator(String adName, String adPassword, int adRanNum, int adLevel, Set<Post> posts) {
        this.adName = adName;
        this.adPassword = adPassword;
-       this.adRandom = adRandom;
+       this.adRanNum = adRanNum;
        this.adLevel = adLevel;
        this.posts = posts;
     }
    
-    public Integer getId() {
+    public Short getId() {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public void setId(Short id) {
         this.id = id;
     }
     public String getAdName() {
@@ -57,12 +57,12 @@ public class Administrator  implements java.io.Serializable {
     public void setAdPassword(String adPassword) {
         this.adPassword = adPassword;
     }
-    public int getAdRandom() {
-        return this.adRandom;
+    public int getAdRanNum() {
+        return this.adRanNum;
     }
     
-    public void setAdRandom(int adRandom) {
-        this.adRandom = adRandom;
+    public void setAdRanNum(int adRanNum) {
+        this.adRanNum = adRanNum;
     }
     public int getAdLevel() {
         return this.adLevel;

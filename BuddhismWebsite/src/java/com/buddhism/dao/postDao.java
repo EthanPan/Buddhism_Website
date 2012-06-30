@@ -25,6 +25,7 @@ public interface postDao
     public int getUpPostCount();
     public int getCount(int type);
     public List<Post> getPost(short postType, final int offset, final int length);
+    public List<Post> getPost(final Administrator administrator, short postType, final int offset, final int length);
     public List<Post> getPost(boolean postUp);
     public List<Post> getPostForAdministrator(final Administrator administrator, final int offset, final int length);
     public void Update(int id, boolean update);

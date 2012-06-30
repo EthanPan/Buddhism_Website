@@ -22,7 +22,9 @@ public interface postService
     public int getUpPostNumber();
     public void UpdatePost(int id, boolean update);
     public List<Post> getPost(short postType, final int offset, final int length);
+    public List<Post> getPost(Administrator administrator, short postType, int offset, int length);
     public List<Post> getPost();
+    public Post getPost(int id);
     public List<Post> getPostForAdministrator(final Administrator administrator, final int offset, final int length);
     public List<Post> getPostFromTrash(final Administrator administrator, final int offset, final int length);
     public void deletePost(int id);

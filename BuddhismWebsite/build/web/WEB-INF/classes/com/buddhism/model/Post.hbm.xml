@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-11 11:26:06 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-7-1 3:41:49 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.buddhism.model.Post" table="post" catalog="buddhismdb">
         <id name="id" type="java.lang.Integer">
@@ -15,22 +15,25 @@
             <column name="post_Date" length="19" not-null="true" />
         </property>
         <property name="postTitle" type="string">
-            <column name="post_Title" length="200" not-null="true" />
+            <column name="post_Title" length="100" not-null="true" />
         </property>
         <property name="postContent" type="string">
-            <column name="post_Content" length="65535" not-null="true" />
+            <column name="post_Content" not-null="true" />
         </property>
         <property name="postClickTimes" type="int">
             <column name="post_ClickTimes" not-null="true" />
         </property>
-        <property name="postCategory" type="int">
+        <property name="postCategory" type="short">
             <column name="post_Category" not-null="true" />
         </property>
         <property name="postMedia" type="boolean">
             <column name="post_Media" not-null="true" />
         </property>
         <property name="postUp" type="boolean">
-            <column name="post_Up" not-null="true"/>
+            <column name="post_Up" not-null="true" />
+        </property>
+        <property name="postTop" type="int">
+            <column name="post_Top" not-null="true" />
         </property>
         <set name="medias" inverse="true" lazy="false" cascade="all">
             <key>

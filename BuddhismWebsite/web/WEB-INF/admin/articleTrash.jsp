@@ -93,7 +93,7 @@
                 </div>
                 <ul class="pagination">
                     <s:if test="currentIndex != 0">
-                        <li class="text"><a href="previousPageAction">前一页</a></li>
+                        <li class="text"><a href="previousPageTrash">前一页</a></li>
                     </s:if>
                     <li class="page"><a href="#" title=""><s:property value="currentIndex + 1"/></a></li>
                     <%
@@ -109,12 +109,12 @@
                         for (int i = 0; i < pageCount; i++)
                         {
                     %>
-                        <li><a href="#" title=""><%=i + currentIndex%></a></li>
+                        <li><a href="jumpTpPageTrash?currentIndex = <%=i + currentIndex%>" title=""><%=i + currentIndex + 1%></a></li>
                     <%
                         }
                     %>
                     <s:if test="currentIndex == maxIndex">
-                        <li class="text"><a href="nextPageAction" title="">后一页</a></li>
+                        <li class="text"><a href="nextPageTrash" title="">后一页</a></li>
                     </s:if>
                 </ul>
                 <div style="clear: both;"></div>
@@ -162,9 +162,15 @@
             <li><a class="expanded heading">相册管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">上传照片</a></li>
-                    <li><a href="#" title="">相册管理</a></li>
+                    <li><a href="photoPage" title="">相册管理</a></li>
                 </ul>
             </li>
+            <li><a class="collapsed heading">视频管理</a>
+                <ul class="navigation">
+                    <li><a href="#" title="">上传视频</a></li>
+                    <li><a href="#" title="">视频管理</a></li>
+                </ul>
+            </li>            
             <li><a class="expanded heading">帐户管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">用户资料</a></li>

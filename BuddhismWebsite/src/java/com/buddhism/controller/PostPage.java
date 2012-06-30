@@ -4,20 +4,15 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class PostPage extends ActionSupport{
+public class PostPage extends SinglePostAction{
     
     public PostPage() {
-    }
-    
-    @Override
-    public String execute()
-    {
-       return "SUCCESS";
+        type = Constants.informs;
     }
 }

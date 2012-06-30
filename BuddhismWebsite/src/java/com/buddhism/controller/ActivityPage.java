@@ -4,18 +4,17 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class ActivityPage extends ActionSupport {
+public class ActivityPage extends SinglePostAction {
     
     public ActivityPage() {
+        type = Constants.activities;
     }
     
-    public String execute() throws Exception {
-        return "SUCCESS";
-    }
+
 }

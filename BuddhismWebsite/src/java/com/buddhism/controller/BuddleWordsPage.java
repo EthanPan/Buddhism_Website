@@ -4,18 +4,16 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class BuddleWordsPage extends ActionSupport {
+public class BuddleWordsPage extends SinglePostAction {
     
     public BuddleWordsPage() {
+        type = Constants.buddleWords;
     }
     
-    public String execute() throws Exception {
-        return "SUCCESS";
-    }
 }

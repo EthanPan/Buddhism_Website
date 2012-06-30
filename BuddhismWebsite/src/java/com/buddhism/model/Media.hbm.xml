@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-11 11:26:06 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-7-1 3:41:49 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.buddhism.model.Media" table="media" catalog="buddhismdb">
         <id name="id" type="java.lang.Integer">
@@ -11,10 +11,13 @@
         <many-to-one name="post" class="com.buddhism.model.Post" fetch="select">
             <column name="media_Post" not-null="true" />
         </many-to-one>
+        <many-to-one name="packet" class="com.buddhism.model.Packet" fetch="select">
+            <column name="media_Packet" not-null="true" />
+        </many-to-one>
         <property name="mediaUrl" type="string">
             <column name="media_Url" length="100" not-null="true" />
         </property>
-        <property name="mediaType" type="boolean">
+        <property name="mediaType" type="short">
             <column name="media_Type" not-null="true" />
         </property>
     </class>

@@ -4,18 +4,15 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class VideosPage extends ActionSupport {
+public class VideosPage extends SinglePostAction {
     
     public VideosPage() {
-    }
-    
-    public String execute() throws Exception {
-        return "SUCCESS";
+        type = Constants.videoes;
     }
 }

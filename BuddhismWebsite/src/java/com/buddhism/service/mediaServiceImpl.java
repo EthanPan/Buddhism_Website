@@ -35,11 +35,11 @@ public class mediaServiceImpl implements mediaService
     }
 
     @Override
-    public void setMedia(Post post, String mediaUrl, boolean mediaType) 
+    public void setMedia(Post post, String mediaUrl, int mediaType) 
     {
         Media media = new Media();
         media.setId(1);
-        media.setMediaType(mediaType);
+        media.setMediaType((short)mediaType);
         media.setMediaUrl(mediaUrl);
         media.setPost(post);
         try {

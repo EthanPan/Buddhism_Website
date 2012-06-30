@@ -15,5 +15,5 @@ public interface mediaService
 {
     public void setMedia(Media media);
     public int getMediaNumber(boolean mediaType);
-    public void setMedia(Post post, String mediaUrl, boolean mediaType);
+    public void setMedia(Post post, String mediaUrl, int mediaType);
 }

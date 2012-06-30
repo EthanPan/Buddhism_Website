@@ -131,7 +131,7 @@
                         for (int i = 0; i < pageCount; i++)
                         {
                     %>
-                        <li><a href="#" title=""><%=i + currentIndex%></a></li>
+                        <li><a href="JumpToManagement.action?currentIndex=<%=currentIndex + i%>" title=""><%=i + currentIndex + 1%></a></li>
                     <%
                         }
                     %>
@@ -184,9 +184,15 @@
             <li><a class="expanded heading">相册管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">上传照片</a></li>
-                    <li><a href="#" title="">相册管理</a></li>
+                    <li><a href="photoPage" title="">相册管理</a></li>
                 </ul>
             </li>
+            <li><a class="collapsed heading">视频管理</a>
+                <ul class="navigation">
+                    <li><a href="#" title="">上传视频</a></li>
+                    <li><a href="#" title="">视频管理</a></li>
+                </ul>
+            </li>            
             <li><a class="expanded heading">帐户管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">用户资料</a></li>

@@ -169,23 +169,23 @@
             <p>帐户信息</p>
             <p class="username"></p>
             <p class="userbtn"><a href="#" title="">资料</a></p>
-            <p class="userbtn"><a href="#" title="">登出</a></p>
+            <p class="userbtn"><a href="logOut" title="">登出</a></p>
         </div>
 
         <ul id="nav">
         	<li>
                 <ul class="navigation">
-                    <li><a>网站状态</a></li>
-                    <li ><a href="#" title="">发布文章</a></li>
+                    <li><a href="adminIndex">网站状态</a></li>
+                    <li ><a href="newPage" title="">发布文章</a></li>
                     <li><a href="#" title="">上传照片</a></li>
                 </ul>
             </li>
             <li>
                 <a class="collapsed heading">文章管理</a>
                  <ul class="navigation">
-                    <li><a href="#" title="">发布文章</a></li>
-                    <li ><a href="#" title="">文章列表</a></li>
-                    <li ><a href="#" title="">文章回收站</a></li>
+                    <li><a href="newPage" title="">发布文章</a></li>
+                    <li><a href="managementAction" title="">文章列表</a></li>
+                    <li><a href="articleTrash" title="">文章回收站</a></li>
                 </ul>
             </li>
             <li><a class="collapsed heading">图片管理</a>

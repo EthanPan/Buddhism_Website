@@ -4,18 +4,15 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class NewsPageAction extends ActionSupport {
+public class NewsPageAction extends SinglePostAction {
     
     public NewsPageAction() {
-    }
-    
-    public String execute() throws Exception {
-        return "SUCCESS";
+        type = Constants.lastestNews; 
     }
 }

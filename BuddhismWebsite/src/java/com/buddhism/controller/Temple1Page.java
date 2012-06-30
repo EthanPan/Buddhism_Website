@@ -4,18 +4,16 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class Temple1Page extends ActionSupport {
+public class Temple1Page extends SinglePostAction {
     
     public Temple1Page() {
+        type = Constants.temple1;
     }
-    
-    public String execute() throws Exception {
-        return "SUCCESS";
-    }
+
 }

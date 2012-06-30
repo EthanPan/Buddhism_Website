@@ -39,6 +39,10 @@ public class newPageAction {
         cataList.add(new Category(Constants.experienceShare, "经验分享"));
         cataList.add(new Category(Constants.videoes, "影音专区"));
         cataList.add(new Category(Constants.wisdom, "智慧点滴"));
+        cataList.add(new Category(Constants.teacher1,"嘉傑 果碩仁波切"));
+        cataList.add(new Category(Constants.teacher2,"經論講座老師"));
+        cataList.add(new Category(Constants.temple1,"康果洛寺"));
+        cataList.add(new Category(Constants.temple2,"尼泊尔圆满法洲寺"));
         
         
         return "SUCCESS";

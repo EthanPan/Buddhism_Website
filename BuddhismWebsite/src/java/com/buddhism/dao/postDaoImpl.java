@@ -5,6 +5,7 @@
 package com.buddhism.dao;
 
 import com.buddhism.model.Administrator;
+import com.buddhism.model.Constants;
 import com.buddhism.model.Media;
 import com.buddhism.model.Post;
 import java.io.File;
@@ -83,12 +84,25 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
                return getHibernateTemplate().executeFind(new HibernateCallback(){
 
             @Override
-            public Object doInHibernate(Session sn) throws HibernateException, SQLException {
-               String hqlString = "select p from Post p where p.postCategory = " + postType + " order by p.postDate desc";
-               Query query = sn.createQuery(hqlString);
-               query.setFirstResult(offset);
-               query.setMaxResults(length);
-               return (List<Post>)query.list();
+            public Object doInHibernate(Session sn) throws HibernateException, SQLException 
+            {
+                String hqlString = "select p from Post p";
+                
+                if(postType == 13)
+                   hqlString += " where p.postCategory = 2 or p.postCategory = 3 order by p.postDate desc";
+                else if(postType == 14)
+                   hqlString += " where p.postCategory = 6 or p.postCategory = 7 order by p.postDate desc";
+                else if(postType == 15)
+                    hqlString += " where p.postCategory = 9 or p.postCategory = 10 order by p.postDate desc";
+                else if(postType == 16)
+                   hqlString += " where p.postCategory = 11 or p.postCategory = 12 order by p.postDate desc";
+                else
+                   hqlString += " where p.postCategory = " + postType + " order by p.postDate desc";
+                
+                Query query = sn.createQuery(hqlString);
+                query.setFirstResult(offset);
+                query.setMaxResults(length);
+                return (List<Post>)query.list();
             }
         });
     }
@@ -105,7 +119,6 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
                if(administrator.getAdLevel() == 0)
                {
                    Query query = sn.createQuery("from Post as p where p.postCategory > 0 order by p.postDate desc");
-                   query.setParameter("admin", administrator);
                    query.setFirstResult(offset);
                    query.setMaxResults(length);
                    return (List<Post>)query.list();
@@ -226,16 +239,35 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
     @Override
     public int getCount(int type) 
     {
+        String hqlString = "from Post as p";
+        String hqlString2 = "select count(postCategory) from Post as p";
+        
+        
         if(type == -1)
         {
             return this.getListFromTrash().size();
         }else if(type ==0)
         {
             return this.getCount();
-        }else
-        {
-            return ((List<Post>)getHibernateTemplate().find("from Post as p where p.postCategory = ?", type)).size();
-        }
+        }else if(type == Constants.lastestNews)
+            hqlString += " where p.postCategory = 2 or p.postCategory = 3";
+        else if(type == Constants.shares)
+            hqlString += " where p.postCategory = 6 or p.postCategory = 7";
+        else if(type == Constants.teachers)
+            hqlString2 += " where p.postCategory = 9 or p.postCategory = 10";
+        else if(type == Constants.temples)
+            hqlString += " where p.postCategory = 11 or p.postCategory = 12";
+        else
+            hqlString = hqlString +  "where p.postCategory = " + type;
+        
+        //return ((List<Post>)getHibernateTemplate().find(hqlString)).size();
+        List postList = getHibernateTemplate().find(hqlString2);
+        
+        Long values = (Long)postList.get(0);
+        
+        //return (int)Long.parseLong(values[0].toString());
+        
+        return values.intValue();
     }
 
     @Override
@@ -247,6 +279,38 @@ public class postDaoImpl extends HibernateDaoSupport implements postDao
             public Object doInHibernate(Session sn) throws HibernateException, SQLException {
                Query query = sn.createQuery("from Post as p where p.postCategory < 0");
                return query.list();
+            }
+        });
+    }
+
+    @Override
+    public List<Post> getPost(final Administrator administrator, final short postType, final int offset, final int length) 
+    {
+        return getHibernateTemplate().executeFind(new HibernateCallback(){
+
+            @Override
+            public Object doInHibernate(Session sn) throws HibernateException, SQLException 
+            {
+                if(administrator.getAdLevel() == 0)
+                {
+                    String hqlString = "from Post as p where p.postCategory = :postType order by p.postDate desc";
+                    Query query = sn.createQuery(hqlString);
+                    query.setParameter("postType", postType);
+                    query.setFirstResult(offset);
+                    query.setMaxResults(length);
+                    return (List<Post>)query.list();
+                }else if(administrator.getAdLevel() == 1)
+                {
+                    String hqlString = "from Post as p where p.administrator = :admin and p.postCategory = :postType order by p.postDate desc";
+                    Query query = sn.createQuery(hqlString);
+                    query.setParameter("admin", administrator);
+                    query.setParameter("postType", postType);
+                    query.setFirstResult(offset);
+                    query.setMaxResults(length);
+                    return (List<Post>)query.list();
+                }
+            
+                return null;
             }
         });
     }

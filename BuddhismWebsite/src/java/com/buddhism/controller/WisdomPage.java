@@ -4,18 +4,16 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class WisdomPage extends ActionSupport {
+public class WisdomPage extends SinglePostAction {
     
     public WisdomPage() {
+        type = Constants.wisdom;
     }
     
-    public String execute() throws Exception {
-        return "SUCCESS";
-    }
 }

@@ -130,5 +130,17 @@ public class postServiceImpl implements postService
        return postDao.getListFromTrash(administrator, offset, length);
     }
 
+    @Override
+    public List<Post> getPost(Administrator administrator, short postType, int offset, int length) 
+    {
+       return postDao.getPost(administrator, postType, offset, length);
+    }
+
+    @Override
+    public Post getPost(int id) 
+    {
+       return postDao.getPost(id);
+    }
+
     
 }

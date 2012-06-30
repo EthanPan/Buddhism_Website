@@ -4,18 +4,16 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class ExperiencesPage extends ActionSupport {
+public class ExperiencesPage extends SinglePostAction {
     
     public ExperiencesPage() {
+        type = Constants.experienceShare;
     }
     
-    public String execute() throws Exception {
-        return "SUCCESS";
-    }
 }

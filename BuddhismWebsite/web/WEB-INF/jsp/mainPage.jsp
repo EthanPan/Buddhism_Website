@@ -51,17 +51,17 @@
 			</div>	  	
 	  		<div class="three">
 	  			<div class="two">
-	  				<div class="left">
-	  					<div id="left_title">甘露教言</div>
-                                                <s:iterator value="buddleWords" id="buddleWord">
-                                                    <p><s:property value="#buddleWord.postTitle"/></p>
-                                                </s:iterator>
+                                    <div class="left">
+                                        <div id="left_title">甘露教言</div>
+                                        <s:iterator value="buddleWords" id="buddleWord">
+                                            <p><s:property value="#buddleWord.postTitle"/></p>
+                                        </s:iterator>
+                                    </div>
+                                    <div class="right">
+                                        <div id="left_title">正法蘭若</div>
+
                                         </div>
-	  				<div class="right">
-	  					<div id="left_title">正法蘭若</div>
-	  					second
-	  				</div>
-	  			</div>
+                                    </div>
 	  			<div class="last">
 	  			<div id="left_title">清涼共享</div>
                                     <s:iterator value="experienceShare" id="share">

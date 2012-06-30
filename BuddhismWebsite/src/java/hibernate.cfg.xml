@@ -10,5 +10,6 @@
     <mapping resource="com/buddhism/model/Post.hbm.xml"/>
     <mapping resource="com/buddhism/model/Administrator.hbm.xml"/>
     <mapping resource="com/buddhism/model/Media.hbm.xml"/>
+    <mapping resource="com/buddhism/model/Packet.hbm.xml" />
   </session-factory>
 </hibernate-configuration>

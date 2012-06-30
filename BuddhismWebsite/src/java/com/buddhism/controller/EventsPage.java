@@ -4,18 +4,16 @@
  */
 package com.buddhism.controller;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.buddhism.model.Constants;
 
 /**
  *
  * @author GodBlessedMay
  */
-public class EventsPage extends ActionSupport {
+public class EventsPage extends SinglePostAction {
     
     public EventsPage() {
+        type = Constants.eventCalendar;
     }
     
-    public String execute() throws Exception {
-        return "SUCCESS";
-    }
 }

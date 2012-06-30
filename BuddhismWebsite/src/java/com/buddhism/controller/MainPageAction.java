@@ -23,11 +23,14 @@ public class MainPageAction implements SessionAware
     private List<Post> eventCalendar = new ArrayList<Post>();
     private List<Post> buddleWords = new ArrayList<Post>();
     private List<Post> activities = new ArrayList<Post>();
-    private List<Post> lastestLaw = new ArrayList<Post>();
     private List<Post> wisdom = new ArrayList<Post>();
     private List<Post> experienceShare = new ArrayList<Post>();
     private List<Post> videoes = new ArrayList<Post>();
     private List<PicturePost> pictures = new ArrayList<PicturePost>();
+    
+    private List<Post> articles = new ArrayList<Post>();
+    
+    private int count;
     
     private postService service;
 
@@ -99,15 +102,7 @@ public class MainPageAction implements SessionAware
     public void setInforms(List<Post> informs) {
         this.informs = informs;
     }
-
-    public List<Post> getLastestLaw() {
-        return lastestLaw;
-    }
-
-    public void setLastestLaw(List<Post> lastestLaw) {
-        this.lastestLaw = lastestLaw;
-    }
-
+    
     public postService getService() {
         return service;
     }
@@ -158,7 +153,37 @@ public class MainPageAction implements SessionAware
         
         
         
+        
+        
         return "SUCCESS";
+    }
+
+    /**
+     * @return the articles
+     */
+    public List<Post> getArticles() {
+        return articles;
+    }
+
+    /**
+     * @param articles the articles to set
+     */
+    public void setArticles(List<Post> articles) {
+        this.articles = articles;
+    }
+
+    /**
+     * @return the count
+     */
+    public int getCount() {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(int count) {
+        this.count = count;
     }
     
     

@@ -27,8 +27,8 @@ public class administratorServiceImpl implements administratorService
     public void setAdministrator(String adName, String adPassword, int adLevel, int adRandom) 
     {
         Administrator administrator = new Administrator();
-        administrator.setId(1);
-        administrator.setAdRandom(adRandom);
+        administrator.setId((short)1);
+        administrator.setAdRanNum(adRandom);
         administrator.setAdName(adName);
         administrator.setAdLevel(adLevel);
         administrator.setAdPassword(adPassword);
