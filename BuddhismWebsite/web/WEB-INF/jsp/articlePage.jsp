@@ -19,7 +19,7 @@
         <div class="wrapper">
             <%@ include file="/jsp/banner_nav.jsp" %>
             <h2><s:property value="post.postTitle" /></h2>
-            <p style="color:black"><s:property value="post.postContent" /></p>
+            <p style="color:black"><s:property value="post.postContent" escape="false"/></p>
             <%@include  file="/jsp/footer.jsp" %>
         </div>
     </body>

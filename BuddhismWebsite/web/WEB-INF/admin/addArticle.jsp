@@ -23,6 +23,23 @@
 
  <script type="text/javascript" src="<%=path%>/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=path%>/js/jquery.uploadify-3.1.min.js"></script>
+<script charset="utf-8" src="<%=path%>/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="<%=path%>/kindeditor/lang/zh_CN.js"></script>
+<script>
+        var editor;
+        
+        KindEditor.ready(function(K) {
+                editor = K.create('#editor_id', {
+                        uploadJson : '<%=path%>/kindeditor/jsp/upload_json.jsp',
+                        fileManagerJson : '<%=path%>/kindeditor/jsp/file_manager_json.jsp',
+                        allowFileManager : true,
+                        afterUpload : function(url) {
+                             var text = $("#editor_id").html();
+                             $("#editor_id").html(text+"<img src='"+url+"' width=\"200px\"/>");
+                        }
+        });
+});
+</script>
 <script type="text/javascript">
     $(function(){
         $("#fileupload").uploadify({
@@ -30,36 +47,34 @@
 
         'swf'            : '<%=path%>/images/uploadify.swf', 
         'uploader'       : '<%=path%>/upload', 
-        'cancelImg'      : '<%=path%>/images/cancel.png', 
-        //'queueID'        : 'fileQueue',  //和存放队列的DIV的id一致 
+        'cancelImg'      : '<%=path%>/images/uploadify-cancel.png', 
+        'queueID'        : 'fileQueue',  //和存放队列的DIV的id一致 
         'fileObjName'    : 'fileupload', //和以下input的name属性一致 
         'auto'           : true, //是否自动开始 
-        'multi'          : false, //是否支持多文件上传 
+        'multi'          : true, //是否支持多文件上传 
         'buttonText'     : '上传照片', //按钮上的文字 
-
         'fileSizeLimit'  : '5MB', //设置单个文件大小限制5m 
-        'queueSizeLimit' : 2, //队列中同时存在的文件个数限制 
+        'queueSizeLimit' : 5, //队列中同时存在的文件个数限制 
         'fileTypeDesc'       : '支持格式:jpg/gif/jpeg/png/bmp.', //如果配置了以下的'fileExt'属性，那么这个属性是必须的 
         'fileTypeExt'        : '*.jpg;*.gif;*.jpeg;*.png;*.bmp',//允许的格式   
         'onUploadSuccess'    : function(file, data, response) { 
             filepath =eval("(" + data + ")");                  
             $("#target").attr("src", filepath);
+            $("#photolist").after("<img src='"+filepath+"' width=\"200px\"/>");
         }, 
         'onUploadError' : function(file, errorCode, errorMsg, errorString) {
             // $.facebox('文件' + file.name + '不能上传' + errorString);
+            alert('文件' + file.name + '不能上传 ' + errorString);
+            
         },
         'onCancel' : function(file) {
             // $.facebox('文件 ' + file.name + '取消了上传');
+            alert("cancel");
         } 
     }); 
 
     })
 </script>
-
-
-
-
-
 </head>
 <body id="homepage">
 	<div id="header">
@@ -95,9 +110,9 @@
                     <span class="smltxt">文章类别</span>
                     <s:select list="cataList" name="articleCat" listKey="catId" listValue="catName" emptyOption="false"/> 
                 </p>
-                <textarea class="text-input textarea" id="wysiwyg" name="content" ></textarea>
-                <input type="file" name="fileupload" id="fileupload" />
-                 <img id="target" src=""/>
+                <textarea id="editor_id" name="content" style="width:900px;height:300px;" class="text-input textarea">
+                &lt;strong&gt;HTML内容&lt;/strong&gt;
+                </textarea>
                 <input type="submit" value="发布" class="btn" /> 
             </form>
          </div>        
@@ -140,15 +155,9 @@
             <li><a class="expanded heading">相册管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">上传照片</a></li>
-                    <li><a href="photoPage" title="">相册管理</a></li>
+                    <li><a href="#" title="">相册管理</a></li>
                 </ul>
             </li>
-            <li><a class="collapsed heading">视频管理</a>
-                <ul class="navigation">
-                    <li><a href="#" title="">上传视频</a></li>
-                    <li><a href="#" title="">视频管理</a></li>
-                </ul>
-            </li>            
             <li><a class="expanded heading">帐户管理</a>
                 <ul class="navigation">
                     <li><a href="#" title="">用户资料</a></li>

@@ -117,90 +117,10 @@
     <bean id="logOut" class="com.buddhism.controller.LogOut">
         
     </bean>
-    <bean id="teacherPage" class="com.buddhism.controller.TeacherPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>             
-    </bean>
-    <bean id="postPage" class="com.buddhism.controller.PostPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>     
-    </bean>
     <bean id="UpAction" class="com.buddhism.controller.UpAndDownAction">
         <property name="service">
             <ref bean="postService"/>
         </property>
-    </bean>
-    <bean id="teacher1Page" class="com.buddhism.controller.teacher1Page">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="teacher2Page" class="com.buddhism.controller.teacher2Page">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="eventPage" class="com.buddhism.controller.EventsPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="associationPage" class="com.buddhism.controller.AssociationPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="newsPage" class="com.buddhism.controller.NewsPageAction">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="buddleWordsPage" class="com.buddhism.controller.BuddleWordsPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="templePage" class="com.buddhism.controller.TemplePage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="temple1Page" class="com.buddhism.controller.Temple1Page">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="temple2Page" class="com.buddhism.controller.Temple2">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="activityPage" class="com.buddhism.controller.ActivityPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="sharesPage" class="com.buddhism.controller.SharesPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="wisdomPage" class="com.buddhism.controller.WisdomPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="experiencePage" class="com.buddhism.controller.ExperiencesPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
-    </bean>
-    <bean id="videosPage" class="com.buddhism.controller.VideosPage">
-        <property name="service">
-            <ref bean="postService"/>
-        </property>         
     </bean>
     <bean id="aboutUs" class="com.buddhism.controller.AboutUsPage">
         
@@ -252,5 +172,10 @@
         <property name="service">
             <ref bean="postService"/>
         </property>           
+    </bean>
+    <bean id="articleList" class="com.buddhism.controller.ArticleList">
+        <property name="service">
+            <ref bean="postService"/>
+        </property>                   
     </bean>
 </beans>

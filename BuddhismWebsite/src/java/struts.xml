@@ -62,51 +62,6 @@
         <action name="UpAction" class="UpAction">
             <result name="SUCCESS" type="redirect">managementAction.action</result>
         </action>
-        <action name="postPage" class="postPage">
-            <result name="SUCCESS">/WEB-INF/jsp/importantPosts.jsp</result>
-        </action>
-        <action name="teacher1Page" class="teacher1Page">
-            <result name="SUCCESS">/WEB-INF/jsp/teacher1.jsp </result>
-        </action>
-        <action name="teacher2Page" class="teacher2Page">
-            <result name="SUCCESS">/WEB-INF/jsp/teacher2.jsp</result>
-        </action>
-        <action name="associationPage" class="associationPage">
-            <result name="SUCCESS">/WEB-INF/jsp/associationRule.jsp</result>
-        </action>
-        <action name="eventsPage" class="eventPage">
-            <result name="SUCCESS">/WEB-INF/jsp/eventsCalendar.jsp</result>
-        </action>
-        <action name="newsPage" class="newsPage">
-            <result name="SUCCESS">/WEB-INF/jsp/news.jsp</result>
-        </action>
-        <action name="buddlesWordPage" class="buddleWordsPage">
-            <result name="SUCCESS">/WEB-INF/jsp/buddleWords.jsp</result>
-        </action>
-        <action name="templePage" class="templePage">
-            <result name="SUCCESS">/WEB-INF/jsp/temples.jsp</result>
-        </action>
-        <action name="temple1Page" class="temple1Page">
-            <result name="SUCCESS">/WEB-INF/jsp/temple1.jsp</result>
-        </action>
-        <action name="temple2Page" class="temple2Page">
-            <result name="SUCCESS">/WEB-INF/jsp/temple2.jsp</result>
-        </action>
-        <action name="activityPage" class="activityPage">
-            <result name="SUCCESS">/WEB-INF/jsp/activities.jsp</result>
-        </action>
-        <action name="sharesPage" class="sharesPage">
-            <result name="SUCCESS">/WEB-INF/jsp/shares.jsp</result>
-        </action>   
-        <action name="wisdomPage" class="wisdomPage">
-            <result name="SUCCESS">/WEB-INF/jsp/wisdoms.jsp</result>
-        </action>          
-        <action name="experiencePage" class="experiencePage">
-            <result name="SUCCESS">/WEB-INF/jsp/experience.jsp</result>
-        </action>    
-        <action name="videosPage" class="videosPage">
-            <result name="SUCCESS">/WEB-INF/jsp/videos.jsp</result>
-        </action>  
         <action name="aboutUs" class="aboutUs">
             <result name="SUCCESS">/WEB-INF/jsp/aboutUs.jsp</result>
         </action>          
@@ -148,6 +103,9 @@
         </action>
         <action name="mainPageArticle" class="mainPageArticle">
             <result name="SUCCESS">/WEB-INF/jsp/mainPageArticles.jsp</result>
+        </action>
+        <action name="articleList" class="articleList">
+            <result name="SUCCESS">/WEB-INF/jsp/articleList.jsp</result>
         </action>
         
             
